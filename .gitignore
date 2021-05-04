@@ -1,3 +1,6 @@
+.DS_Store
+app.css.map
+
 #composer
 composer.lock
 vendor
@@ -8,3 +11,6 @@ node_modules
 
 #environment data
 .env
+
+#bundle
+dist/bundle.js
