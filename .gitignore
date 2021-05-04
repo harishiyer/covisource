@@ -1,0 +1,9 @@
+#composer
+composer.lock
+
+#npm
+package-lock.json
+dist
+
+#environment data
+.env

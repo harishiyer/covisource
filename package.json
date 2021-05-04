@@ -1,0 +1,28 @@
+{
+  "name": "covisource",
+  "version": "1.0.0",
+  "description": "A covid resource tracker ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack && composer install"
+  },
+  "author": "Harish Iyer",
+  "license": "ISC",
+  "dependencies": {
+    "aos": "^2.3.4",
+    "bootstrap": "^4.6.0",
+    "composer": "^4.1.0",
+    "jquery": "^3.6.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.0.1",
+    "css-loader": "^5.2.4",
+    "node-sass": "^5.0.0",
+    "postcss-loader": "~3.0.0",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.36.1",
+    "webpack-cli": "^4.6.0"
+  }
+}
