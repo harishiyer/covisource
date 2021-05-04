@@ -1,9 +1,10 @@
 #composer
 composer.lock
+vendor
 
 #npm
 package-lock.json
-dist
+node_modules
 
 #environment data
 .env
