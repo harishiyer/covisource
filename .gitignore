@@ -1,16 +1,12 @@
-.DS_Store
-app.css.map
+
 
 #composer
-composer.lock
-vendor
+
 
 #npm
-package-lock.json
-node_modules
+
 
 #environment data
 .env
 
 #bundle
-dist/bundle.js

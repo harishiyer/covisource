@@ -9,19 +9,19 @@ $dotenv->load();
 
 $location = $_GET['location'];
 
-$filters = explode(",", "covid,covid-19,covid19,coronavirus");
+$filters = "";
+
+if(isset($_GET['filter'])){
+    $filters = explode(",", $_GET['filter']);
+}
 
 foreach($filters as $filter){
     $query_string = $query_string."#".$filter." OR ";
 }
 
-$query_string = substr($query_string, 0, -4);
+//$query_string = substr($query_string, 0, -9);
 
-if(isset($_GET['filter'])){
-    $query_string = $query_string." OR #".$_GET['filter'];
-}
-
-$query_string = $query_string." AND #".$location;
+$query_string = $query_string." AND #".$location; 
  
 $connection = new TwitterOAuth($_ENV['OAUTH_ACCESS_TOKEN'], $_ENV['OAUTH_ACCESS_TOKEN_SECRET'], $_ENV['YOUR_CONSUMER_KEY'], $_ENV['YOUR_CONSUMER_SECRET']);
 $statuses = $connection->get("search/tweets", ["q" => $query_string, 'result_type' => 'mixed', 'count' => '100', 'tweet_mode' => 'extended', 'include_entities' => 'true', 'f' => 'live']);
@@ -73,6 +73,6 @@ foreach($statuses as $status){
     }
 
 }
-echo json_encode($twitter_data);
+echo $query_string;
 die(0);
 ?>
