@@ -4,7 +4,7 @@
 <div class="content-wrapper">
 
     <div class="row">
-        <div class="col-12 col-lg-6 col-xl-9">
+        <div class="col-12 col-lg-6 col-xl-8">
             <section id="important-banner">
                 <div class="row">
                     <div class="col-12 col-md-6 col-xl-4 widget widget-1">
@@ -93,11 +93,11 @@
             
             
         </div>
-        <div class="col-12 col-lg-6 col-xl-3">
+        <div class="col-12 col-lg-6 col-xl-4">
             <section id="twitter-feed">
                 <div class="row mx-0">
                     <div class="col-12 px-4 pt-4">
-                        <h1>Latest data from twitter</h1>
+                        <h1>Latest COVID-19 data from twitter</h1>
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="dropdown show">
@@ -115,39 +115,18 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-12 pt-4 pb-2 covid-data-filter">
+                                <a href="javascript: void(0);" class="btn btn-success mr-2 px-4 mb-3">Covid</a>
+                                <a href="javascript: void(0);" class="btn btn-success mr-2 px-4 mb-3">Covid-19</a>
+                                <a href="javascript: void(0);" class="btn btn-success mr-2 px-4 mb-3">Covid19</a>
+                                <a href="javascript: void(0);" class="btn btn-success mr-2 px-4 mb-3">Coronavirus</a>
+                            </div>
                         </div>
                         <br>
                     </div>
 
                     <div class="tweets-wrapper">
-                        <div class="tweet">
-                            <h5><strong>Username</strong>@john_doe</h5>
-                            <p>
-                            We are seeing patients admitted to ICU with #COVID well after shot 1 and before shot 2. One isn't vaccinated until fully vaccinated. Given the significant delay between shots 1 & 2, clear communication on how to conduct oneself b/w shots from public health leaders would help.
-                            </p>
-                            <a href="">View on Twitter</a>
-                        </div>
-                        <div class="tweet">
-                            <h5><strong>Username</strong>@john_doe</h5>
-                            <p>
-                            We are seeing patients admitted to ICU with #COVID well after shot 1 and before shot 2. One isn't vaccinated until fully vaccinated. Given the significant delay between shots 1 & 2, clear communication on how to conduct oneself b/w shots from public health leaders would help.
-                            </p>
-                            <a href="">View on Twitter</a>
-                        </div>
-                        <div class="tweet">
-                            <h5><strong>Username</strong>@john_doe</h5>
-                            <p>
-                            We are seeing patients admitted to ICU with #COVID well after shot 1 and before shot 2. One isn't vaccinated until fully vaccinated. Given the significant delay between shots 1 & 2, clear communication on how to conduct oneself b/w shots from public health leaders would help.
-                            </p>
-                            <a href="">View on Twitter</a>
-                        </div>
-                        <div class="tweet">
-                            <h5><strong>Username</strong>@john_doe</h5>
-                            <p>
-                            We are seeing patients admitted to ICU with #COVID well after shot 1 and before shot 2. One isn't vaccinated until fully vaccinated. Given the significant delay between shots 1 & 2, clear communication on how to conduct oneself b/w shots from public health leaders would help.
-                            </p>
-                            <a href="">View on Twitter</a>
-                        </div>
+                        
                     </div>    
                 </div>
             </section>

@@ -4,7 +4,7 @@
 
 $(function() { 
 
-    $(".dropdown-menu a").on("click", function() {
+    $("donor .dropdown-menu a").on("click", function() {
         var value = $(this).text().toLowerCase()=="all"?"":$(this).text().toLowerCase();
         console.log("val"+value);
         $("table tr").filter(function() {
@@ -26,5 +26,74 @@ $(function() {
 
 
       });
+      
+      $.ajax({
+          method: "GET",
+          url: "get_twitter_data.php",
+          data: {
+            'location' : 'pune',
+          },
+      }).done(function(data){
+        data = JSON.parse(data);      
+        data.forEach(function(tweet_data){
+            var tweet = "<div class='tweet'>";
+                tweet += "<div class='row'>";
+                tweet += "<div class='col-2 px-0'>";
+                tweet += "<img src='"+tweet_data.profile_image+"' class='twitter-profile-image img-fluid'>"; 
+                tweet += "</div>"; 
+                tweet += "<div class='col-10'>";
+                tweet += "<p><strong>"+tweet_data.name+"</strong> <span><a href='https://twitter.com/"+tweet_data.screen_name+"'>@"+tweet_data.screen_name+"<a></span></p>";
+                tweet += "</div>"; 
+                tweet += "<div class='col-10 offset-2'>";
+                tweet += "<p>"+tweet_data.message+"</p>";
+                tweet += "<a href='https://twitter.com/'>View on Twitter</a>";
+                tweet += "</div>"; 
+                tweet += "</div>"; 
+                tweet += "</div>"; 
+                $('.tweets-wrapper').append(tweet);
+        });
+        
+        
+      }).fail(function(jqXHR, textStatus){
+        alert( "Twitter fetch failed. Please reload. Error : " + textStatus );
+      });
+
+      $('#twitter-feed .dropdown .dropdown-menu a').on("click", function(ev){
+        $.ajax({
+            method: "GET",
+            url: "get_twitter_data.php",
+            data: {
+              'location' : 'pune',
+              'filter'   : $(this).text(),
+            },
+        }).done(function(data){
+          data = JSON.parse(data); 
+          $('.tweets-wrapper').empty();     
+          data.forEach(function(tweet_data){
+              var tweet = "<div class='tweet'>";
+                  tweet += "<div class='row'>";
+                  tweet += "<div class='col-2 px-0'>";
+                  tweet += "<img src='"+tweet_data.profile_image+"' class='twitter-profile-image img-fluid'>"; 
+                  tweet += "</div>"; 
+                  tweet += "<div class='col-10'>";
+                  tweet += "<p><strong>"+tweet_data.name+"</strong> <span><a href='https://twitter.com/"+tweet_data.screen_name+"'>@"+tweet_data.screen_name+"<a></span></p>";
+                  tweet += "</div>"; 
+                  tweet += "<div class='col-10 offset-2'>";
+                  tweet += "<p>"+tweet_data.message+"</p>";
+                  tweet += "<a href='https://twitter.com/'>View on Twitter</a>";
+                  tweet += "</div>"; 
+                  tweet += "</div>"; 
+                  tweet += "</div>"; 
+                  $('.tweets-wrapper').append(tweet);
+          });
+          
+          
+        }).fail(function(jqXHR, textStatus){
+          alert( "Twitter fetch failed. Please reload. Error : " + textStatus );
+        });
+
+        $('.covid-data-filter').append('<a href="javascript: void(0);" class="btn btn-success mr-2 px-4 mb-3">'+$(this).text()+'</a>');
+        
+      })
 
 })

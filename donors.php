@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-12 col-md-10 offset-md-1">
 
-            <div class="filters mb-4">
+            <div class="donor filters mb-4">
                 <h6 class="float-left mr-3 mt-2">Filters:</h6> 
                 <div class="btn-group mx-2">
                     <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
