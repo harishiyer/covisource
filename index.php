@@ -4,7 +4,7 @@
 <div class="content-wrapper">
 
     <div class="row">
-        <div class="col-12 col-lg-6 col-xl-8">
+        <div class="col-12 col-lg-6 col-xl-8 order-md-first order-last">
             <section id="important-banner">
                 <div class="row">
                     <div class="col-12 col-md-6 col-xl-4 widget widget-1">
@@ -12,7 +12,7 @@
                             <h1>Plasma Donors</h1>  
             
                             <div class="learn-more">
-                                <a href="./donors.php">Learn More</a>
+                                <a href="./donors.php<?php echo isset($_GET['location']) ? "?location=".$_GET['location']:""; ?>">Learn More</a>
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                 <div class="col-12 col-md-6 col-lg-7 col-xl-8">
                     <section id="request">
                         <hr>
-                        <br>
+                        <br class="d-none d-md-block">
                         <h1>
                             Post you requirement on twitter
                         </h1>
@@ -56,19 +56,19 @@
                                     <div class="form-group row">
                                         <label for="name" class="col-sm-2 col-form-label">Name</label>
                                         <div class="col-sm-10">
-                                        <input type="text" class="form-control-plaintext" id="name" placeholder="Enter your name">
+                                        <input type="text" class="form-control-plaintext" id="name" placeholder="Enter your name" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="message" class="col-sm-2 col-form-label">Password</label>
                                         <div class="col-sm-10">
-                                        <textarea class="form-control" rows="5" id="message" placeholder="Type your message here."></textarea>
+                                        <textarea class="form-control" rows="5" id="message" placeholder="Type your message here." required></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="name" class="col-sm-2 col-form-label">Contact</label>
+                                        <label for="contact" class="col-sm-2 col-form-label">Mobile</label>
                                         <div class="col-sm-10">
-                                        <input type="tel" class="form-control-plaintext" id="name" Placeholder="Enter your phone number">
+                                        <input type="tel" name="phonenumber" class="form-control-plaintext" id="contact" Placeholder="Enter your phone number" required>
                                         </div>
                                     </div>
                                     <div class="pb-3 text-right">
@@ -93,7 +93,7 @@
             
             
         </div>
-        <div class="col-12 col-lg-6 col-xl-4">
+        <div class="col-12 col-lg-6 col-xl-4 order-first order-md-last">
             <section id="twitter-feed">
                 <div class="row mx-0">
                     <div class="col-12 px-4 pt-4">
@@ -133,8 +133,8 @@
         </div>
     </div>
 
-    <div class="row py-5 my-5 px-4">
-        <div class="col-12 col-md-5">
+    <div class="row py-5 my-5 px-md-4">
+        <div class="col-12 col-md-5 order-md-first order-last">
             <section id="about-us">
                 <h1>
                     <strong>Who Are We</strong>
@@ -150,14 +150,17 @@
                 </p>
             </section>
         </div>
-        <div class="col-12 col-md-5 offset-md-1">
+        <div class="col-12 col-md-5 offset-md-1 pb-5 pb-md-0 order-first order-md-last">
             <section id="about-us">
-                <h1>
+                <h1 class="pb-2">
                     <strong>Useful Links</strong>
                 </h1>
-                <p>
-                    <h4><a href="#">Click Here</a> to register yourself as a plasma donor.</h4>
-                </p>
+
+                <ul>
+                    <li>
+                        <h4><a href="#">Click Here</a> to register yourself as a plasma donor.</h4>
+                    </li>
+                </ul>
             </section>
         </div>
     </div>

@@ -1,12 +1,14 @@
-
+.DS_Store
+app.css.map
 
 #composer
-
+vendor
 
 #npm
-
+node_modules
 
 #environment data
 .env
 
 #bundle
+dist/bundle.js

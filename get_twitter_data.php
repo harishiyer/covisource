@@ -15,16 +15,28 @@ if(isset($_GET['filter'])){
     $filters = explode(",", $_GET['filter']);
 }
 
-foreach($filters as $filter){
-    $query_string = $query_string."#".$filter." OR ";
+$total_filter = count($filters);
+$i = 0 ;
+
+for($i=0; $i < $total_filter; $i++){
+    if($i==4){
+        $query_string = substr($query_string, 0, -3);
+    }
+    if($i > 3){
+        $query_string = $query_string."AND ".$filters[$i]." ";
+    }else{
+        $query_string = $query_string.$filters[$i]." OR ";
+    }
 }
 
-//$query_string = substr($query_string, 0, -9);
+if($i==4){
+    $query_string = substr($query_string, 0, -3);
+}
 
 $query_string = $query_string." AND #".$location; 
  
 $connection = new TwitterOAuth($_ENV['OAUTH_ACCESS_TOKEN'], $_ENV['OAUTH_ACCESS_TOKEN_SECRET'], $_ENV['YOUR_CONSUMER_KEY'], $_ENV['YOUR_CONSUMER_SECRET']);
-$statuses = $connection->get("search/tweets", ["q" => $query_string, 'result_type' => 'mixed', 'count' => '100', 'tweet_mode' => 'extended', 'include_entities' => 'true', 'f' => 'live']);
+$statuses = $connection->get("search/tweets", ["q" => $query_string, 'result_type' => 'recent', 'count' => '100', 'tweet_mode' => 'extended', 'include_entities' => 'true']);
 
 if($statuses->errors){
     $error_code    = $statuses->errors[0]->code;
@@ -52,7 +64,7 @@ foreach($statuses as $status){
         
         if (isset($status['entities']['media'])) {
             foreach ($status['entities']['media'] as $media) {
-                $media_url = $media['media_url']; // Or $media->media_url_https for the SSL version.
+                $media_url = $media['media_url_https']; // Or $media->media_url_https for the SSL version.
                 $twitter_data[$i]["featured_image"] = $media_url;
             }
         }
@@ -65,7 +77,7 @@ foreach($statuses as $status){
 
         if (isset($status['entities']['media'])) {
             foreach ($status['entities']['media'] as $media) {
-                $media_url = $media['media_url']; // Or $media->media_url_https for the SSL version.
+                $media_url = $media['media_url_https']; // Or $media->media_url_https for the SSL version.
                 $twitter_data[$i]["featured_image"] = $media_url;
             }
         }
@@ -73,6 +85,6 @@ foreach($statuses as $status){
     }
 
 }
-echo $query_string;
+echo json_encode($twitter_data);
 die(0);
 ?>

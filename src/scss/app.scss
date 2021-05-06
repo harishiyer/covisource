@@ -27,6 +27,20 @@ nav.navbar {
     background-color: white;
     border-bottom: 1px solid #eee;
     box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+
+    .dropdown-toggle{
+        background-color: black;
+        color: white;
+        border-radius: 30px;
+        padding: 5px 30px 6px;
+        border: 1px solid black;
+    }
+
+    .dropdown-toggle:hover{
+        color: $primary-1;
+        background-color: white;
+        border: 1px solid $primary-1;
+    }
 }
 
 .bg-gradient-primary {
@@ -53,7 +67,7 @@ nav.navbar {
         padding-bottom: 15px;
         color: white;
 
-        div.widget-container {
+        div.widget-container { 
             padding: 30px 15px;
             height: 100%;
             background-color: $primary-1;
@@ -100,6 +114,12 @@ nav.navbar {
     }
 }
 
+@media screen and (max-width: 767px){
+    #important-banner{
+        padding: 30px 0px 30px;
+    }
+}
+
 
 /*
  * twitter-feed
@@ -107,6 +127,13 @@ nav.navbar {
 .mid-section{
     padding: 25px 30px 0;
 }
+
+@media screen and (max-width: 767px){
+    .mid-section{
+        padding: 25px 0px 0;
+    }
+}
+
 
 
 /*
@@ -144,6 +171,12 @@ nav.navbar {
                 border-radius: 50%;
             }
         }
+
+        @media screen and (max-width: 767px){
+            .tweet{
+                max-width: 100%;
+            }
+        }
     }
 
 }
@@ -168,3 +201,9 @@ nav.navbar {
     }
 
  }
+
+@media screen and (max-width: 767px){
+    #twitter-post{
+        padding-top: 0px;
+    }
+}

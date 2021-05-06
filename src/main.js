@@ -1,141 +1,265 @@
 /*
- * Main Js  
+ * Main Js
  */
 
-$(function() { 
+import validate from "jquery-validation";
 
-    $("donor .dropdown-menu a").on("click", function() {
-        var value = $(this).text().toLowerCase()=="all"?"":$(this).text().toLowerCase();
-        console.log("val"+value);
-        $("table tr").filter(function() {
-          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-          console.log($(this).text().toLowerCase().indexOf(value));
-        });
-      });
+$(function () {
+  $(".location-dropdown .dropdown-menu  a").on("click", function (ev) {
+    ev.preventDefault();
+    $(".location-dropdown .dropdown-toggle").text($(this).text());
+    window.location.href = updateQueryStringParameter(window.location.href, "location", $(this).text().toLowerCase());
+  });
 
-      $('#twitter-post input').on("keyup", function(ev){
-        var word_count = 0; 
-        $('#twitter-post input').each(function(){
-            word_count = word_count + $(this).val().length;
-        });
-        $('.tweet-char').text((280-word_count)+"/280 characters remaining");
-      });
+  $(".donor .dropdown-menu a").on("click", function () {
+    var value =
+      $(this).text().toLowerCase() == "all" ? "" : $(this).text().toLowerCase();
+    $("table tr").filter(function () {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    });
+  });
 
-      $('#twitter-post').on('submit', function(ev){
-        ev.preventDefault();
+  $("#twitter-post input").on("keyup", function (ev) {
+    var word_count = 0;
+    $("#twitter-post input").each(function () {
+      word_count = word_count + $(this).val().length;
+    });
+    $(".tweet-char").text(280 - word_count + "/280 characters remaining");
+  });
 
-
-      });
-      
-      var filter = "";
-      $('.covid-data-filter a').each(function(){
-        filter += ($(this).text().trim().toLowerCase())+",";
-      }); 
+  $("#twitter-post").validate({
+      rules:{
+          phonenumber: 'customphone',
+      }
+  });
+  
+  $("#twitter-post").on("submit", function (ev) {
+    ev.preventDefault();
+    $("#twitter-post").validate();
+    if ($("#twitter-post").valid()) {
+      var name = $("#twitter-post #name").val();
+      var message = $("#twitter-post #message").val();
+      var contact = $("#twitter-post #contact").val();
 
       $.ajax({
-          method: "GET",
-          url: "get_twitter_data.php",
-          data: {
-            'location' : 'pune',
-            'filter'   : filter,
-          },
-      }).done(function(data){
-        data = JSON.parse(data);      
-        data.forEach(function(tweet_data){
-            var tweet = "<div class='tweet'>";
-                tweet += "<div class='row'>";
-                tweet += "<div class='col-2 px-0'>";
-                tweet += "<img src='"+tweet_data.profile_image+"' class='twitter-profile-image img-fluid'>"; 
-                tweet += "</div>"; 
-                tweet += "<div class='col-10'>";
-                tweet += "<p><strong>"+tweet_data.name+"</strong> <span><a href='https://twitter.com/"+tweet_data.screen_name+"'>@"+tweet_data.screen_name+"<a></span></p>";
-                tweet += "</div>"; 
-                tweet += "<div class='col-10 offset-2'>";
-                tweet += "<p>"+tweet_data.message+"</p>";
-                tweet += "<a href='https://twitter.com/'>View on Twitter</a>";
-                tweet += "</div>"; 
-                tweet += "</div>"; 
-                tweet += "</div>"; 
-                $('.tweets-wrapper').append(tweet);
+        method: "GET",
+        url: "sendmail.php",
+        data: {
+          name: name,
+          message: message,
+          contact: contact,
+          authorised_access: true,
+        },
+      })
+        .done(function (data) {
+          console.log(data);
+        })
+        .fail(function (jqXHR, textStatus) {
+          alert("Twitter fetch failed. Please reload. Error : " + textStatus);
         });
-        
-        
-      }).fail(function(jqXHR, textStatus){
-        alert( "Twitter fetch failed. Please reload. Error : " + textStatus );
+    }
+  });
+
+  var windowUrl = window.location.search;
+  var urlParams = new URLSearchParams(windowUrl);
+  var location = urlParams.get("location");
+
+  if (!location) {
+    location = "India";
+  }
+
+  var filter = "";
+  $(".covid-data-filter a").each(function () {
+    filter += $(this).text().trim().toLowerCase() + ",";
+  });
+
+  filter = filter.slice(0, -1);
+
+  $.ajax({
+    method: "GET",
+    url: "get_twitter_data.php",
+    data: {
+      location: location,
+      filter: filter,
+    },
+  })
+    .done(function (data) {
+      data = JSON.parse(data);
+      data.forEach(function (tweet_data) {
+        var tweet = "<div class='tweet'>";
+        tweet += "<div class='row'>";
+        tweet += "<div class='col-2 px-0'>";
+        tweet +=
+          "<img src='" +
+          tweet_data.profile_image +
+          "' class='twitter-profile-image img-fluid'>";
+        tweet += "</div>";
+        tweet += "<div class='col-10'>";
+        tweet +=
+          "<p><strong>" +
+          tweet_data.name +
+          "</strong> <span><a href='https://twitter.com/" +
+          tweet_data.screen_name +
+          "'>@" +
+          tweet_data.screen_name +
+          "</a></span></p>";
+        tweet += "</div>";
+        tweet += "<div class='col-10 offset-2'>";
+        tweet += "<p>" + tweet_data.message + "</p>";
+        if (tweet_data.featured_image) {
+          tweet +=
+            "<p><img src=" +
+            tweet_data.featured_image +
+            " class='img-fluid'></p>";
+        }
+        tweet += "<a href='https://twitter.com/'>View on Twitter</a>";
+        tweet += "</div>";
+        tweet += "</div>";
+        tweet += "</div>";
+        $(".tweets-wrapper").append(tweet);
       });
+    })
+    .fail(function (jqXHR, textStatus) {
+      alert("Twitter fetch failed. Please reload. Error : " + textStatus);
+    });
 
-      $('#twitter-feed .dropdown .dropdown-menu a').on("click", function(ev){
+  $("#twitter-feed .dropdown .dropdown-menu a").on("click", function (ev) {
+    $(".covid-data-filter").append(
+      '<a href="javascript: void(0);" class="btn btn-success mr-2 px-4 mb-3 is-removable">' +
+        $(this).text() +
+        '&nbsp;&nbsp;&nbsp;&nbsp;<span class="fas fa-times"></span></a>'
+    );
 
-        $('.covid-data-filter').append('<a href="javascript: void(0);" class="btn btn-success mr-2 px-4 mb-3 is-removable">'+$(this).text()+'   <span class="fas fa-close"></span></a>');
+    var filter = "";
+    $(".covid-data-filter a").each(function () {
+      filter += $(this).text().trim().toLowerCase() + ",";
+    });
+    filter = filter.slice(0, -1);
 
-        var filter = "";
-        $('.covid-data-filter a').each(function(){
-            filter += ($(this).text().trim().toLowerCase())+",";
+    $.ajax({
+      method: "GET",
+      url: "get_twitter_data.php",
+      data: {
+        location: location,
+        filter: filter,
+        single_filter: true,
+      },
+    })
+      .done(function (data) {
+        data = JSON.parse(data);
+        $(".tweets-wrapper").empty();
+        data.forEach(function (tweet_data) {
+          var tweet = "<div class='tweet'>";
+          tweet += "<div class='row'>";
+          tweet += "<div class='col-2 px-0'>";
+          tweet +=
+            "<img src='" +
+            tweet_data.profile_image +
+            "' class='twitter-profile-image img-fluid'>";
+          tweet += "</div>";
+          tweet += "<div class='col-10'>";
+          tweet +=
+            "<p><strong>" +
+            tweet_data.name +
+            "</strong> <span><a href='https://twitter.com/" +
+            tweet_data.screen_name +
+            "'>@" +
+            tweet_data.screen_name +
+            "<a></span></p>";
+          tweet += "</div>";
+          tweet += "<div class='col-10 offset-2'>";
+          tweet += "<p>" + tweet_data.message + "</p>";
+          if (tweet_data.featured_image) {
+            tweet +=
+              "<p><img src=" +
+              tweet_data.featured_image +
+              " class='img-fluid'></p>";
+          }
+          tweet += "<a href='https://twitter.com/'>View on Twitter</a>";
+          tweet += "</div>";
+          tweet += "</div>";
+          tweet += "</div>";
+          $(".tweets-wrapper").append(tweet);
         });
 
-        $.ajax({
+        $(".is-removable").on("click", function () {
+          $(this).remove();
+
+          var filter = "";
+          $(".covid-data-filter a").each(function () {
+            filter += $(this).text().trim().toLowerCase() + ",";
+          });
+
+          filter = filter.slice(0, -1);
+
+          $.ajax({
             method: "GET",
             url: "get_twitter_data.php",
             data: {
-              'location' : 'pune',
-              'filter'   : filter,
+              location: location,
+              filter: filter,
             },
-        }).done(function(data){
-            $('.tweets-wrapper').append(data);
-          
-          
-          
-        }).fail(function(jqXHR, textStatus){
-          alert( "Twitter fetch failed. Please reload. Error : " + textStatus );
-        });
-
-        
-
-        $('.is-removable').on('click', function(){
-            $(this).remove();
-    
-            var filter = "";
-            $('.covid-data-filter a').each(function(){
-                filter += ($(this).text().trim().toLowerCase())+",";
-            }); 
-
-            $.ajax({
-                method: "GET",
-                url: "get_twitter_data.php",
-                data: {
-                  'location' : 'pune',
-                  'filter'   : filter,
-                },
-            }).done(function(data){
-              data = JSON.parse(data); 
-              $('.tweets-wrapper').empty();     
-              data.forEach(function(tweet_data){
-                  var tweet = "<div class='tweet'>";
-                      tweet += "<div class='row'>";
-                      tweet += "<div class='col-2 px-0'>";
-                      tweet += "<img src='"+tweet_data.profile_image+"' class='twitter-profile-image img-fluid'>"; 
-                      tweet += "</div>"; 
-                      tweet += "<div class='col-10'>";
-                      tweet += "<p><strong>"+tweet_data.name+"</strong> <span><a href='https://twitter.com/"+tweet_data.screen_name+"'>@"+tweet_data.screen_name+"<a></span></p>";
-                      tweet += "</div>"; 
-                      tweet += "<div class='col-10 offset-2'>";
-                      tweet += "<p>"+tweet_data.message+"</p>";
-                      tweet += "<a href='https://twitter.com/'>View on Twitter</a>";
-                      tweet += "</div>"; 
-                      tweet += "</div>"; 
-                      tweet += "</div>"; 
-                      $('.tweets-wrapper').append(tweet);
+          })
+            .done(function (data) {
+              data = JSON.parse(data);
+              $(".tweets-wrapper").empty();
+              data.forEach(function (tweet_data) {
+                var tweet = "<div class='tweet'>";
+                tweet += "<div class='row'>";
+                tweet += "<div class='col-2 px-0'>";
+                tweet +=
+                  "<img src='" +
+                  tweet_data.profile_image +
+                  "' class='twitter-profile-image img-fluid'>";
+                tweet += "</div>";
+                tweet += "<div class='col-10'>";
+                tweet +=
+                  "<p><strong>" +
+                  tweet_data.name +
+                  "</strong> <span><a href='https://twitter.com/" +
+                  tweet_data.screen_name +
+                  "'>@" +
+                  tweet_data.screen_name +
+                  "<a></span></p>";
+                tweet += "</div>";
+                tweet += "<div class='col-10 offset-2'>";
+                tweet += "<p>" + tweet_data.message + "</p>";
+                if (tweet_data.featured_image) {
+                  tweet +=
+                    "<p><img src=" +
+                    tweet_data.featured_image +
+                    " class='img-fluid'></p>";
+                }
+                tweet += "<a href='https://twitter.com/'>View on Twitter</a>";
+                tweet += "</div>";
+                tweet += "</div>";
+                tweet += "</div>";
+                $(".tweets-wrapper").append(tweet);
               });
-              
-              
-            }).fail(function(jqXHR, textStatus){
-              alert( "Twitter fetch failed. Please reload. Error : " + textStatus );
+            })
+            .fail(function (jqXHR, textStatus) {
+              alert(
+                "Twitter fetch failed. Please reload. Error : " + textStatus
+              );
             });
-
-            console.log(filter); 
         });
-         
+      })
+      .fail(function (jqXHR, textStatus) {
+        alert("Twitter fetch failed. Please reload. Error : " + textStatus);
       });
+  });
+});
 
-     
-})  
+function updateQueryStringParameter(uri, key, value) {
+  var re = new RegExp("([?|&])" + key + "=.*?(&|$)", "i");
+  var separator = uri.indexOf("?") !== -1 ? "&" : "?";
+  if (uri.match(re)) {
+    return uri.replace(re, "$1" + key + "=" + value + "$2");
+  } else {
+    return uri + separator + key + "=" + value;
+  }
+}
+
+$.validator.addMethod('customphone', function (value, element) {
+    return this.optional(element) || /^(\+91-|\+91|0)?\d{10}$/.test(value);
+}, "Please enter a valid phone number");

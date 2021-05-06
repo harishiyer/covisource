@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | COVISOURCE</title>
 </head>
 
@@ -20,7 +20,7 @@
             Refreshed 5 mins ago
         </span>
         <ul class="navbar-nav ml-auto mr-4">
-            <li class="nav-item active">
+            <!--li class="nav-item active">
                 <a class="nav-link" href="#">Donate Plasma</a>
             </li>
             <li class="nav-item">
@@ -28,22 +28,22 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Contant Us</a>
-            </li>
+            </li-->
         </ul>
     </div>
     <div class="ml-2">
-          <div style="margin-top: 6px" class="dropdown show float-left ml-3">
+          <div style="margin-top: 6px" class="dropdown location-dropdown show float-left ml-3">
               <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
-                  Pune
+                  Set Location
               </a>
 
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#">Pune</a>
-                  <a class="dropdown-item" href="#">Mumbai>
-                  <a class="dropdown-item" href="#">Delhi</a>
-                  <a class="dropdown-item" href="#">Chennai</a>
-                  <a class="dropdown-item" href="#">Kolkata</a>
+                  <a class="dropdown-item" data-name="pune" href="#">Pune</a>
+                  <a class="dropdown-item" data-name="mumbai" href="#">Mumbai</a>
+                  <a class="dropdown-item" data-name="delhi" href="#">Delhi</a>
+                  <a class="dropdown-item" data-name="chennai" href="#">Chennai</a>
+                  <a class="dropdown-item" data-name="kolkata" href="#">Kolkata</a>
               </div>
           </div>
         </div>
