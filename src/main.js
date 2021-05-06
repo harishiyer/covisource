@@ -4,6 +4,8 @@
 
 import validate from "jquery-validation";
 
+console.log("App Loading");
+
 $(function () {
   $(".location-dropdown .dropdown-menu  a").on("click", function (ev) {
     ev.preventDefault();
