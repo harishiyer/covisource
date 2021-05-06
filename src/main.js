@@ -8,10 +8,15 @@ $(function () {
   $(".location-dropdown .dropdown-menu  a").on("click", function (ev) {
     ev.preventDefault();
     $(".location-dropdown .dropdown-toggle").text($(this).text());
-    window.location.href = updateQueryStringParameter(window.location.href, "location", $(this).text().toLowerCase());
+    window.location.href = updateQueryStringParameter(
+      window.location.href,
+      "location",
+      $(this).text().toLowerCase()
+    );
   });
 
-  $(".donor .dropdown-menu a").on("click", function () {
+  $(".donor .dropdown-menu a").on("click", function (ev) {
+    ev.preventDefault();
     var value =
       $(this).text().toLowerCase() == "all" ? "" : $(this).text().toLowerCase();
     $("table tr").filter(function () {
@@ -28,11 +33,11 @@ $(function () {
   });
 
   $("#twitter-post").validate({
-      rules:{
-          phonenumber: 'customphone',
-      }
+    rules: {
+      phonenumber: "customphone",
+    },
   });
-  
+
   $("#twitter-post").on("submit", function (ev) {
     ev.preventDefault();
     $("#twitter-post").validate();
@@ -124,6 +129,7 @@ $(function () {
     });
 
   $("#twitter-feed .dropdown .dropdown-menu a").on("click", function (ev) {
+    ev.preventDefault();
     $(".covid-data-filter").append(
       '<a href="javascript: void(0);" class="btn btn-success mr-2 px-4 mb-3 is-removable">' +
         $(this).text() +
@@ -182,7 +188,8 @@ $(function () {
           $(".tweets-wrapper").append(tweet);
         });
 
-        $(".is-removable").on("click", function () {
+        $(".is-removable").on("click", function (ev) {
+          ev.preventDefault();
           $(this).remove();
 
           var filter = "";
@@ -260,6 +267,10 @@ function updateQueryStringParameter(uri, key, value) {
   }
 }
 
-$.validator.addMethod('customphone', function (value, element) {
+$.validator.addMethod(
+  "customphone",
+  function (value, element) {
     return this.optional(element) || /^(\+91-|\+91|0)?\d{10}$/.test(value);
-}, "Please enter a valid phone number");
+  },
+  "Please enter a valid phone number"
+);
