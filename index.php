@@ -165,7 +165,7 @@
                     We hope that people might be able to connect with each other through this platform and will be able help each other out in this tough times.
                 </p>
                 <p>
-                    If you have any suggestions or questions, feel free to reach out to us at <a href="mailto:info@vigneshsolutions.com">info@vigneshsolutions.com</a>.
+                    If you have any suggestions or questions, feel free to reach out to us at <a href="mailto:covidhelpinghandsource@gmail.com">covidhelpinghandsource@gmail.com</a>.
                 </p>
             </section>
         </div>
