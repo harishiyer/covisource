@@ -153,7 +153,7 @@
     </div>
 
     <div class="row py-5 my-5 px-md-4">
-        <div class="col-12 col-md-5 order-md-first order-last">
+        <div class="col-12 col-md-5">
             <section id="about-us">
                 <h1>
                     <strong>Who Are We</strong>
