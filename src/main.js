@@ -89,7 +89,7 @@ $(function () {
 
   filter = filter.slice(0, -1);
 
-  $(".tweets-wrapper").html('<div style="height: 100vh; display: flex;"><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></div>');
+  $(".tweets-wrapper").html('<div class="spinner-wrapper"><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></div>');
 
   $.ajax({
     method: "GET",
@@ -154,7 +154,7 @@ $(function () {
     });
     filter = filter.slice(0, -1);
 
-    $(".tweets-wrapper").html('<div style="height: 100vh; display: flex;"><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></div>');
+    $(".tweets-wrapper").html('<div class="spinner-wrapper"><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></div>');
 
     $.ajax({
       method: "GET",
@@ -213,7 +213,7 @@ $(function () {
 
           filter = filter.slice(0, -1);
 
-          $(".tweets-wrapper").html('<div style="height: 100vh; display: flex;"><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></div>');
+          $(".tweets-wrapper").html('<div class="spinner-wrapper"><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></div>');
 
           $.ajax({
             method: "GET",
