@@ -5,7 +5,7 @@
 import validate from "jquery-validation";
 
 $(function () {
-  $(".location-dropdown .dropdown-menu  a").on("click", function (ev) {
+  $(".location-dropdown .dropdown-menu  a:not(.search-location)").on("click", function (ev) {
     ev.preventDefault();
     $(".location-dropdown .dropdown-toggle").text($(this).text());
     window.location.href = updateQueryStringParameter(
@@ -15,14 +15,31 @@ $(function () {
     );
   });
 
-  $('.search-location').on("click", function(){
-    $(".location-dropdown .dropdown-toggle").text($('.user-location').val());
-    window.location.href = updateQueryStringParameter(
+  $('#select-location').valid();
+
+  $('#select-location').on("submit", function(ev){
+    ev.preventDefault();
+  })
+
+  $('.search-location').on("click", function(ev){
+    console.log("click");
+    ev.preventDefault();
+    if($('#select-location').valid()){
+      console.log("valid");
+      $(".location-dropdown .dropdown-toggle").text($('.user-location').val());
+        window.location.href = updateQueryStringParameter(
         window.location.href,
         "location",
         $('.user-location').val().toLowerCase()
       );
+    }
   });
+
+  $("#select-location input").on('keyup', function (e) {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+      $('.search-location').trigger('click');
+    }
+});
 
   $(".donor .dropdown-menu a").on("click", function (ev) {
     ev.preventDefault();
@@ -122,7 +139,7 @@ $(function () {
           "</a></span></p>";
         tweet += "</div>";
         tweet += "<div class='col-12'>";
-        tweet += "<p>" + tweet_data.message + "</p>";
+        tweet += "<p>" + urlify(tweet_data.message) + "</p>";
         if (tweet_data.featured_image) {
           tweet +=
             "<p><img src=" +
@@ -188,7 +205,7 @@ $(function () {
             "<a></span></p>";
           tweet += "</div>";
           tweet += "<div class='col-12'>";
-          tweet += "<p>" + tweet_data.message + "</p>";
+          tweet += "<p>" + urlify(tweet_data.message) + "</p>";
           if (tweet_data.featured_image) {
             tweet +=
               "<p><img src=" +
@@ -246,7 +263,7 @@ $(function () {
                   "<a></span></p>";
                 tweet += "</div>";
                 tweet += "<div class='col-12'>";
-                tweet += "<p>" + tweet_data.message + "</p>";
+                tweet += "<p>" + urlify(tweet_data.message) + "</p>";
                 if (tweet_data.featured_image) {
                   tweet +=
                     "<p><img src=" +
@@ -290,3 +307,12 @@ $.validator.addMethod(
   },
   "Please enter a valid phone number"
 );
+
+function urlify(text) {
+  var urlRegex = /(https?:\/\/[^\s]+)/g;
+  return text.replace(urlRegex, function(url) {
+    return '<a target="_blank" href="' + url + '">' + url + '</a>';
+  })
+  // or alternatively
+  // return text.replace(urlRegex, '<a href="$1">$1</a>')
+} 
