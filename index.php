@@ -177,8 +177,17 @@
                 <p> 
                     <a class="" href="https://github.com/harishiyer"><i class="fab fa-github"></i></a>&nbsp;&nbsp;Harish Iyer&nbsp;&nbsp;&nbsp;&nbsp;
                 </p>
-                
-                <h1>
+                <p>
+                    Girish R
+                </p>
+                <p>
+                    KR 
+                </p>
+                <p>
+                    KR 
+                </p>
+
+                <h1 class="pt-5">
                     <strong>Disclaimer</strong>
                 </h1>
                 <p>
