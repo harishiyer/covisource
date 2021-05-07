@@ -1,11 +1,16 @@
 <?php 
  require("header.php");
 ?>
+<script>
+    function onSubmit(token){
+      $("#twitter-post").trigger('submit');
+    } 
+</script>
 <div class="content-wrapper">
 
     <div class="row">
-        <div class="col-12 col-lg-6 col-xl-8 order-md-first order-last">
-            <section id="important-banner">
+        <div class="col-12 col-lg-6 col-xl-8 order-md-last order-last d-none">
+            <!--section id="important-banner">
                 <div class="row">
                     <div class="col-12 col-md-6 col-xl-4 widget widget-1">
                         <div class="widget-container text-center py-5">
@@ -22,7 +27,7 @@
                             <h1>Beds Availability</h1>
                            
                             <div class="learn-more">
-                                <a href="#">Coming Soon</a>
+                                <a>Coming Soon</a>
                             </div>
                         </div>
                     </div>
@@ -37,9 +42,9 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section-->
 
-            <div class="row mid-section">
+            <!--div class="row mid-section">
                 <div class="col-12 col-md-6 col-lg-7 col-xl-8">
                     <section id="request">
                         <hr>
@@ -79,7 +84,10 @@
                                     </div>
 
                                     <div class="text-right">
-                                        <button type="submit" class="btn btn-success px-5">Submit</button>
+                                        <button class="btn btn-success px-5 g-recaptcha" 
+                                            data-sitekey="6Lfp2McaAAAAAACgLaDBQRMRhno5mcUpjv_UYDV6" 
+                                            data-callback='onSubmit' 
+                                            data-action='submit'>Submit</button>
                                     </div>
                                     
                                 </form>
@@ -90,28 +98,35 @@
                 <div class="col-12 col-md-6 col-lg-5 col-xl-4">
                     
                 </div>
-            </div>
+            </div-->
             
             
         </div>
-        <div class="col-12 col-lg-6 col-xl-4 order-first order-md-last">
+        <div class="col-12 col-lg-12 col-xl-12 order-first order-md-first">
             <section id="twitter-feed">
-                <div class="row mx-0">
-                    <div class="col-12 px-4 pt-4">
+                <div class="row mx-md-0">
+                    <div class="col-12 px-md-4 pt-4">
                         <h1>Latest COVID-19 data from twitter</h1>
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="dropdown show">
-                                    <a class="btn btn-secondary dropdown-toggle w-100" href="#" role="button" id="dropdownMenuLink"
+                                    <a class="btn btn-secondary dropdown-toggle data-filter-list" href="#" role="button" id="dropdownMenuLink"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Filter
                                     </a>
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                         <a class="dropdown-item" href="#">Oxygen</a>
+                                        <a class="dropdown-item" href="#">Need Oxygen</a>
                                         <a class="dropdown-item" href="#">Plasma</a>
+                                        <a class="dropdown-item" href="#">Need Plasma</a>
+                                        <a class="dropdown-item" href="#">Donate Plasma</a>
+                                        <a class="dropdown-item" href="#">Donate Blood</a>
                                         <a class="dropdown-item" href="#">ICU</a>
+                                        <a class="dropdown-item" href="#">Need ICU</a>
                                         <a class="dropdown-item" href="#">Beds</a>
+                                        <a class="dropdown-item" href="#">Need Beds</a>
+                                        <a class="dropdown-item" href="#">Beds Available</a>
                                         <a class="dropdown-item" href="#">Vaccination</a>
                                     </div>
                                 </div>
@@ -126,9 +141,11 @@
                         <br>
                     </div>
 
-                    <div class="tweets-wrapper">
+                    <div class="masonary-wrapper">
+                        <div class="tweets-wrapper">
                         
-                    </div>    
+                        </div>  
+                    </div> 
                 </div>
             </section>
         </div>
@@ -151,7 +168,7 @@
                 </p>
             </section>
         </div>
-        <div class="col-12 col-md-5 offset-md-1 pb-5 pb-md-0 order-first order-md-last">
+        <!--div class="col-12 col-md-5 offset-md-1 pb-5 pb-md-0 order-first order-md-last">
             <section id="about-us">
                 <h1 class="pb-2">
                     <strong>Useful Links</strong>
@@ -163,7 +180,7 @@
                     </li>
                 </ul>
             </section>
-        </div>
+        </div-->
     </div>
 
 </div>

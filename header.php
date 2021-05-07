@@ -19,9 +19,9 @@
     </script>
 </head>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/covisource">COVI<strong>SOURCE</strong></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="pl-md-4 navbar-brand" href="/">COVI<strong>SOURCE</strong></a>
+    <button class="navbar-toggler d-none" type="button" data-toggle="collapse" data-target="#navbarText"
         aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -50,12 +50,20 @@
               </a>
 
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" data-name="pune" href="#">Pune</a>
-                  <a class="dropdown-item" data-name="mumbai" href="#">Mumbai</a>
-                  <a class="dropdown-item" data-name="delhi" href="#">Delhi</a>
-                  <a class="dropdown-item" data-name="chennai" href="#">Chennai</a>
-                  <a class="dropdown-item" data-name="kolkata" href="#">Kolkata</a>
-              </div>
-          </div>
+                <a class="dropdown-item" data-name="mumbai" href="#">Mumbai</a>
+                <a class="dropdown-item" data-name="pune" href="#">Pune</a>
+                <a class="dropdown-item" data-name="delhi" href="#">Delhi</a>
+                <a class="dropdown-item" data-name="lucknow" href="#">Lucknow</a>
+                <a class="dropdown-item" data-name="bengaluru" href="#">Bengaluru</a>
+                <a class="dropdown-item" data-name="chennai" href="#">Chennai</a>
+                <a class="dropdown-item" data-name="kolkata" href="#">Kolkata</a>
+                <a class="dropdown-item" data-name="nagpur" href="#">Nagpur</a>
+                <a class="dropdown-item" data-name="nashik" href="#">Nashik</a>
+                <div class="dropdown-divider"></div>
+                <p class="type-location">Or Type Location</p>
+                <input type="text" name="user_location" class="user-location" placeholder="Enter Location">
+                <p class="type-location text-right text-center text-md-right"><a class="search-location">Search <span class="fa fa-arrow-right"></span></a></p>
+              </div> 
+          </div> 
         </div>
 </nav>

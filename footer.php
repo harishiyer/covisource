@@ -6,8 +6,8 @@
       </div>
     </div>
   </footer>
-  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LenJMcaAAAAADRhOfYcakbO13mnthvQLLfR-q-R"></script>
   <script src="dist/bundle.js"></script> 
+  <script src="https://www.google.com/recaptcha/api.js"></script>
   <?php 
     if(isset($_GET['location'])){
         ?>
@@ -15,10 +15,12 @@
             $('.location-dropdown .dropdown-menu-right a').each(function(){
                 if($(this).data('name') == '<?php echo $_GET['location']; ?>'){
                     $('.location-dropdown .dropdown-toggle').text($(this).text());
+                }else{
+                    $('.location-dropdown .dropdown-toggle').text('<?php echo $_GET['location']; ?>');
                 }
             });    
         </script>
-        <?php
+        <?php 
     }
   ?>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">

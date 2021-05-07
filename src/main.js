@@ -4,8 +4,6 @@
 
 import validate from "jquery-validation";
 
-console.log("App Loading");
-
 $(function () {
   $(".location-dropdown .dropdown-menu  a").on("click", function (ev) {
     ev.preventDefault();
@@ -15,6 +13,15 @@ $(function () {
       "location",
       $(this).text().toLowerCase()
     );
+  });
+
+  $('.search-location').on("click", function(){
+    $(".location-dropdown .dropdown-toggle").text($('.user-location').val());
+    window.location.href = updateQueryStringParameter(
+        window.location.href,
+        "location",
+        $('.user-location').val().toLowerCase()
+      );
   });
 
   $(".donor .dropdown-menu a").on("click", function (ev) {
@@ -82,6 +89,8 @@ $(function () {
 
   filter = filter.slice(0, -1);
 
+  $(".tweets-wrapper").html('<div style="height: 100vh; display: flex;"><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></div>');
+
   $.ajax({
     method: "GET",
     url: "get_twitter_data.php",
@@ -92,16 +101,17 @@ $(function () {
   })
     .done(function (data) {
       data = JSON.parse(data);
+      $(".tweets-wrapper").empty();
       data.forEach(function (tweet_data) {
         var tweet = "<div class='tweet'>";
         tweet += "<div class='row'>";
-        tweet += "<div class='col-2 px-0'>";
+        tweet += "<div class='col-2 px-0 d-none'>";
         tweet +=
           "<img src='" +
           tweet_data.profile_image +
           "' class='twitter-profile-image img-fluid'>";
         tweet += "</div>";
-        tweet += "<div class='col-10'>";
+        tweet += "<div class='col-12'>";
         tweet +=
           "<p><strong>" +
           tweet_data.name +
@@ -111,7 +121,7 @@ $(function () {
           tweet_data.screen_name +
           "</a></span></p>";
         tweet += "</div>";
-        tweet += "<div class='col-10 offset-2'>";
+        tweet += "<div class='col-12'>";
         tweet += "<p>" + tweet_data.message + "</p>";
         if (tweet_data.featured_image) {
           tweet +=
@@ -119,7 +129,7 @@ $(function () {
             tweet_data.featured_image +
             " class='img-fluid'></p>";
         }
-        tweet += "<a href='https://twitter.com/'>View on Twitter</a>";
+        tweet += "<a href='"+tweet_data.url+"' class='d-none' target='_blank'>View on Twitter</a>";
         tweet += "</div>";
         tweet += "</div>";
         tweet += "</div>";
@@ -144,6 +154,8 @@ $(function () {
     });
     filter = filter.slice(0, -1);
 
+    $(".tweets-wrapper").html('<div style="height: 100vh; display: flex;"><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></div>');
+
     $.ajax({
       method: "GET",
       url: "get_twitter_data.php",
@@ -159,13 +171,13 @@ $(function () {
         data.forEach(function (tweet_data) {
           var tweet = "<div class='tweet'>";
           tweet += "<div class='row'>";
-          tweet += "<div class='col-2 px-0'>";
+          tweet += "<div class='col-2 px-0 d-none'>";
           tweet +=
             "<img src='" +
             tweet_data.profile_image +
             "' class='twitter-profile-image img-fluid'>";
           tweet += "</div>";
-          tweet += "<div class='col-10'>";
+          tweet += "<div class='col-12'>";
           tweet +=
             "<p><strong>" +
             tweet_data.name +
@@ -175,7 +187,7 @@ $(function () {
             tweet_data.screen_name +
             "<a></span></p>";
           tweet += "</div>";
-          tweet += "<div class='col-10 offset-2'>";
+          tweet += "<div class='col-12'>";
           tweet += "<p>" + tweet_data.message + "</p>";
           if (tweet_data.featured_image) {
             tweet +=
@@ -183,7 +195,7 @@ $(function () {
               tweet_data.featured_image +
               " class='img-fluid'></p>";
           }
-          tweet += "<a href='https://twitter.com/'>View on Twitter</a>";
+          tweet += "<a href='"+tweet_data.url+"' class='d-none' target='_blank'>View on Twitter</a>";
           tweet += "</div>";
           tweet += "</div>";
           tweet += "</div>";
@@ -201,6 +213,8 @@ $(function () {
 
           filter = filter.slice(0, -1);
 
+          $(".tweets-wrapper").html('<div style="height: 100vh; display: flex;"><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></div>');
+
           $.ajax({
             method: "GET",
             url: "get_twitter_data.php",
@@ -215,13 +229,13 @@ $(function () {
               data.forEach(function (tweet_data) {
                 var tweet = "<div class='tweet'>";
                 tweet += "<div class='row'>";
-                tweet += "<div class='col-2 px-0'>";
+                tweet += "<div class='col-2 px-0 d-none'>";
                 tweet +=
                   "<img src='" +
                   tweet_data.profile_image +
                   "' class='twitter-profile-image img-fluid'>";
                 tweet += "</div>";
-                tweet += "<div class='col-10'>";
+                tweet += "<div class='col-12'>";
                 tweet +=
                   "<p><strong>" +
                   tweet_data.name +
@@ -231,7 +245,7 @@ $(function () {
                   tweet_data.screen_name +
                   "<a></span></p>";
                 tweet += "</div>";
-                tweet += "<div class='col-10 offset-2'>";
+                tweet += "<div class='col-12'>";
                 tweet += "<p>" + tweet_data.message + "</p>";
                 if (tweet_data.featured_image) {
                   tweet +=
@@ -239,7 +253,7 @@ $(function () {
                     tweet_data.featured_image +
                     " class='img-fluid'></p>";
                 }
-                tweet += "<a href='https://twitter.com/'>View on Twitter</a>";
+                tweet += "<a href='"+tweet_data.url+"' class='d-none' target='_blank'>View on Twitter</a>";
                 tweet += "</div>";
                 tweet += "</div>";
                 tweet += "</div>";

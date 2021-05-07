@@ -33,7 +33,7 @@ if($i==4){
     $query_string = substr($query_string, 0, -3);
 }
 
-$query_string = $query_string." AND #".$location; 
+$query_string = $query_string." AND #".$location." -filter:retweets"; 
  
 $connection = new TwitterOAuth($_ENV['OAUTH_ACCESS_TOKEN'], $_ENV['OAUTH_ACCESS_TOKEN_SECRET'], $_ENV['YOUR_CONSUMER_KEY'], $_ENV['YOUR_CONSUMER_SECRET']);
 $statuses = $connection->get("search/tweets", ["q" => $query_string, 'result_type' => 'recent', 'count' => '100', 'tweet_mode' => 'extended', 'include_entities' => 'true']);
@@ -61,7 +61,7 @@ foreach($statuses as $status){
         $twitter_data[$i]["screen_name"] = $status["user"]["screen_name"];
         $twitter_data[$i]["profile_image"] = $status["user"]["profile_image_url_https"];
         $twitter_data[$i]["message"] = $status['retweeted_status']['full_text'];
-        
+
         if (isset($status['entities']['media'])) {
             foreach ($status['entities']['media'] as $media) {
                 $media_url = $media['media_url_https']; // Or $media->media_url_https for the SSL version.
@@ -74,7 +74,7 @@ foreach($statuses as $status){
         $twitter_data[$i]["screen_name"] = $status["user"]["screen_name"];
         $twitter_data[$i]["profile_image"] = $status["user"]["profile_image_url_https"];
         $twitter_data[$i]["message"] = $status['full_text'];
-
+        
         if (isset($status['entities']['media'])) {
             foreach ($status['entities']['media'] as $media) {
                 $media_url = $media['media_url_https']; // Or $media->media_url_https for the SSL version.
@@ -84,7 +84,7 @@ foreach($statuses as $status){
         $i++;
     }
 
-}
+} 
 echo json_encode($twitter_data);
 die(0);
 ?>
