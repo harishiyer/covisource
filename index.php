@@ -167,7 +167,28 @@
                 <p>
                     If you have any suggestions or questions, feel free to reach out to us at <a href="mailto:covidhelpinghandsource@gmail.com">covidhelpinghandsource@gmail.com</a>.
                 </p>
+
+                <h1 class="mt-5">
+                    <strong>Meet the developers</strong>
+                </h1>
+                <p> 
+                    <a class="" href="https://github.com/kajal785"><i class="fab fa-github"></i></a>&nbsp;&nbsp;Kajal Singh&nbsp;&nbsp;&nbsp;&nbsp;
+                </p>
+                <p> 
+                    <a class="" href="https://github.com/harishiyer"><i class="fab fa-github"></i></a>&nbsp;&nbsp;Harish Iyer&nbsp;&nbsp;&nbsp;&nbsp;
+                </p>
+                
+                <h1>
+                    <strong>Disclaimer</strong>
+                </h1>
+                <p>
+                    All the data is pulled straight from twitter. Please verify the sources in case you need to contact anybody.
+                </p>
+
             </section>
+        </div>
+        <div class="col-12 text-center">
+            <h4 class="mt-5 text-center">Stay Safe. Wear a Mask.</h4>
         </div>
         <!--div class="col-12 col-md-5 offset-md-1 pb-5 pb-md-0 order-first order-md-last">
             <section id="about-us">
