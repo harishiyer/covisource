@@ -159,7 +159,7 @@
                     <strong>Who Are We</strong>
                 </h1>
                 <p>
-                    We are a bunch of IT professional, who are trying to help the community like many others to overcome the deadly virus. We have created a simple dashboard to help you navigate around important data about covid situation in different parts of India.
+                    We are a bunch of IT professionals, who are trying to help the community like many others to overcome the deadly virus. We have created a simple dashboard to help you navigate important data about covid situation in different parts of India.
                 </p>
                 <p>
                     We hope that people might be able to connect with each other through this platform and will be able help each other out in this tough times.
