@@ -73,7 +73,7 @@ $(function () {
       var contact = $("#twitter-post #contact").val();
 
       $.ajax({
-        method: "GET",
+        method: "POST",
         url: "sendmail.php",
         data: {
           name: name,
@@ -109,7 +109,7 @@ $(function () {
   $(".tweets-wrapper").html('<div class="spinner-wrapper"><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></div>');
 
   $.ajax({
-    method: "GET",
+    method: "POST",
     url: "get_twitter_data.php",
     data: {
       location: location,
@@ -117,6 +117,7 @@ $(function () {
     },
   })
     .done(function (data) {
+      console.log(data)
       data = JSON.parse(data);
       $(".tweets-wrapper").empty();
       data.forEach(function (tweet_data) {
@@ -174,7 +175,7 @@ $(function () {
     $(".tweets-wrapper").html('<div class="spinner-wrapper"><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></div>');
 
     $.ajax({
-      method: "GET",
+      method: "POST",
       url: "get_twitter_data.php",
       data: {
         location: location,
@@ -233,7 +234,7 @@ $(function () {
           $(".tweets-wrapper").html('<div class="spinner-wrapper"><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></div>');
 
           $.ajax({
-            method: "GET",
+            method: "POST",
             url: "get_twitter_data.php",
             data: {
               location: location,

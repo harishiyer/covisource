@@ -1,5 +1,4 @@
 <?php 
-
 require __DIR__ . '/vendor/autoload.php';
 
 use Abraham\TwitterOAuth\TwitterOAuth;
@@ -7,12 +6,12 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
-$location = $_GET['location'];
+$location = $_POST['location'];
 
 $filters = "";
 
-if(isset($_GET['filter'])){
-    $filters = explode(",", $_GET['filter']);
+if(isset($_POST['filter'])){
+    $filters = explode(",", $_POST['filter']);
 }
 
 $total_filter = count($filters);

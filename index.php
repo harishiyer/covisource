@@ -105,7 +105,7 @@
         <div class="col-12 col-lg-12 col-xl-12 order-first order-md-first">
             <section id="twitter-feed">
                 <div class="row mx-md-0">
-                    <div class="col-12 px-md-4 pt-4">
+                    <div class="col-12 col-xl-5 px-md-4 pt-4">
                         <h1>Latest COVID-19 data from twitter</h1>
                         <div class="row">
                             <div class="col-12 col-md-6">
@@ -140,6 +140,10 @@
                             </div>
                         </div>
                         <br>
+                    </div>
+
+                    <div class="col-12 px-md-4 col-xl-7">
+                        
                     </div>
 
                     <div class="masonary-wrapper">
