@@ -264,13 +264,17 @@ nav.navbar {
     height: 100vh;
     width: 100%;
     display: flex;
+
+    .spinner-border{
+        margin-bottom: 40px;
+    }
 }
 
 @media screen and (max-width: 767px){
     .spinner-wrapper{
         height: 50px;
     }
-}
+} 
 
 
 /**************

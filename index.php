@@ -143,7 +143,7 @@
                     </div>
 
                     <div class="col-12 px-md-4 col-xl-5 pb-5 offset-xl-1 d-flex">
-                        <div class="w-100 stories ml-xl-auto mr-auto ml-0 my-auto">
+                        <div class="w-100 stories ml-xl-auto mr-auto ml-0 my-auto d-none">
                             <div class="story">
                                 <div class="content"><div class="inner-content">abc</div></div>
                             </div> 
