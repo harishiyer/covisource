@@ -47,13 +47,11 @@
                 <a class="nav-link" href="#">Contant Us</a>
             </li-->
         </ul>
-    </div>
+    </div> 
     <div class="ml-2">
           <div style="margin-top: 6px" class="dropdown location-dropdown show float-left ml-3">
               <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  Set Location
-              </a>
+                  aria-haspopup="true" aria-expanded="false">Set Location</a>
 
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" data-name="mumbai" href="#">Mumbai</a>

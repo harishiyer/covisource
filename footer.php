@@ -16,10 +16,11 @@
                 if($(this).data('name') == '<?php echo $_GET['location']; ?>'){
                     $('.location-dropdown .dropdown-toggle').text($(this).text());
                 }
+            }).promise().done(function(){
+              if($('.location-dropdown .dropdown-toggle').text().trim() == 'Set Location'){
+                $('.location-dropdown .dropdown-toggle').text('<?php echo $_GET['location']; ?>');
+              }
             });    
-            if($('.location-dropdown .dropdown-toggle').text() == 'Set Location'){
-              $('.location-dropdown .dropdown-toggle').text('<?php echo $_GET['location']; ?>');
-            }
         </script>
         <?php 
     }

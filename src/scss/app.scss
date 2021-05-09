@@ -3,9 +3,11 @@
  **************/
 @import "~bootstrap/scss/bootstrap";
 @import './variables/_variables.scss';
+@import '~slick-carousel/slick/slick';
+@import '~slick-carousel/slick/slick-theme'; 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
 
-
+ 
 /**************
  Global
  **************/
@@ -141,6 +143,35 @@ nav.navbar {
 @media screen and (max-width: 767px){
     #important-banner{
         padding: 30px 0px 30px;
+    }
+}
+
+
+/*
+ * Stories
+ */
+.stories{
+    max-width: 445px;
+    margin-left: auto;
+    margin-right: 30px;
+
+    
+    .story{
+
+        div.content{
+            display: flex!important;
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            border-radius: 50%;
+            margin: 0 6px;
+            color: white;
+            border: 2px solid white;
+
+            .inner-content{
+                margin: auto;
+            }
+        }
     }
 }
 

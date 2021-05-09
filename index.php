@@ -105,11 +105,11 @@
         <div class="col-12 col-lg-12 col-xl-12 order-first order-md-first">
             <section id="twitter-feed">
                 <div class="row mx-md-0">
-                    <div class="col-12 col-xl-5 px-md-4 pt-4">
+                    <div class="col-12 col-xl-6 px-xl-4 pb-0 pt-4">
                         <h1>Latest COVID-19 data from twitter</h1>
                         <div class="row">
                             <div class="col-12 col-md-6">
-                                <div class="dropdown show">
+                                <div class="dropdown show dropright">
                                     <a class="btn btn-secondary dropdown-toggle data-filter-list" href="#" role="button" id="dropdownMenuLink"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Filter
@@ -142,10 +142,29 @@
                         <br>
                     </div>
 
-                    <div class="col-12 px-md-4 col-xl-7">
-                        
+                    <div class="col-12 px-md-4 col-xl-5 pb-5 offset-xl-1 d-flex">
+                        <div class="w-100 stories ml-xl-auto mr-auto ml-0 my-auto">
+                            <div class="story">
+                                <div class="content"><div class="inner-content">abc</div></div>
+                            </div> 
+                            <div class="story">
+                                <div class="content"><div class="inner-content">abc</div></div>
+                            </div>
+                            <div class="story">
+                                <div class="content"><div class="inner-content">abc</div></div>
+                            </div>
+                            <div class="story">
+                                <div class="content"><div class="inner-content">abc</div></div>
+                            </div>
+                            <div class="story">
+                                <div class="content"><div class="inner-content">abc</div></div>
+                            </div>
+                            <div class="story">
+                                <div class="content"><div class="inner-content">abc</div></div>
+                            </div>
+                        </div>
                     </div>
-
+ 
                     <div class="masonary-wrapper">
                         <div class="tweets-wrapper">
                         

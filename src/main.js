@@ -3,8 +3,16 @@
  */
 
 import validate from "jquery-validation";
+import 'slick-carousel'
 
 $(function () {
+
+  $('.stories').slick({
+    slidesToShow: 4,
+    adaptiveHeight: true,
+    variableWidth: true,
+  });
+
   $(".location-dropdown .dropdown-menu  a:not(.search-location)").on("click", function (ev) {
     ev.preventDefault();
     $(".location-dropdown .dropdown-toggle").text($(this).text());
