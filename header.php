@@ -24,52 +24,52 @@
     gtag('config', 'G-HH3R8CHD7K');
     </script>
 </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="pl-md-4 navbar-brand" href="/">COVI<strong>SOURCE</strong></a>
+        <button class="navbar-toggler d-none" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarText">
+            <!--span class="navbar-text">
+                Refreshed 5 mins ago
+            </span-->
+            <ul class="navbar-nav ml-auto mr-4">
+                <!--li class="nav-item active">
+                    <a class="nav-link" href="#">Donate Plasma</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Guidelines</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contant Us</a>
+                </li-->
+            </ul>
+        </div> 
+        <div class="ml-2">
+            <div style="margin-top: 6px" class="dropdown location-dropdown show float-left ml-3">
+                <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Set Location</a>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <a class="pl-md-4 navbar-brand" href="/">COVI<strong>SOURCE</strong></a>
-    <button class="navbar-toggler d-none" type="button" data-toggle="collapse" data-target="#navbarText"
-        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarText">
-        <!--span class="navbar-text">
-            Refreshed 5 mins ago
-        </span-->
-        <ul class="navbar-nav ml-auto mr-4">
-            <!--li class="nav-item active">
-                <a class="nav-link" href="#">Donate Plasma</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Guidelines</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contant Us</a>
-            </li-->
-        </ul>
-    </div> 
-    <div class="ml-2">
-          <div style="margin-top: 6px" class="dropdown location-dropdown show float-left ml-3">
-              <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">Set Location</a>
-
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" data-name="mumbai" href="#">Mumbai</a>
-                <a class="dropdown-item" data-name="pune" href="#">Pune</a>
-                <a class="dropdown-item" data-name="delhi" href="#">Delhi</a>
-                <a class="dropdown-item" data-name="lucknow" href="#">Lucknow</a>
-                <a class="dropdown-item" data-name="bengaluru" href="#">Bengaluru</a>
-                <a class="dropdown-item" data-name="chennai" href="#">Chennai</a>
-                <a class="dropdown-item" data-name="kolkata" href="#">Kolkata</a>
-                <a class="dropdown-item" data-name="nagpur" href="#">Nagpur</a>
-                <a class="dropdown-item" data-name="nashik" href="#">Nashik</a>
-                <div class="dropdown-divider"></div>
-                <p class="type-location">Or Type Location</p>
-                <form id="select-location">
-                <input type="text" name="user_location" class="user-location" placeholder="Enter Location" required>
-                <p class="type-location text-right text-center text-md-right"><a href="javascript:void(0)" class="search-location">Search <span class="fa fa-arrow-right"></span></a></p>
-                </form>
-              </div> 
-          </div> 
-        </div>
-</nav>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" data-name="mumbai" href="#">Mumbai</a>
+                    <a class="dropdown-item" data-name="pune" href="#">Pune</a>
+                    <a class="dropdown-item" data-name="delhi" href="#">Delhi</a>
+                    <a class="dropdown-item" data-name="lucknow" href="#">Lucknow</a>
+                    <a class="dropdown-item" data-name="bengaluru" href="#">Bengaluru</a>
+                    <a class="dropdown-item" data-name="chennai" href="#">Chennai</a>
+                    <a class="dropdown-item" data-name="kolkata" href="#">Kolkata</a>
+                    <a class="dropdown-item" data-name="nagpur" href="#">Nagpur</a>
+                    <a class="dropdown-item" data-name="nashik" href="#">Nashik</a>
+                    <div class="dropdown-divider"></div>
+                    <p class="type-location">Or Type Location</p>
+                    <form id="select-location">
+                    <input type="text" name="user_location" class="user-location" placeholder="Enter Location" required>
+                    <p class="type-location text-right text-center text-md-right"><a href="javascript:void(0)" class="search-location">Search <span class="fa fa-arrow-right"></span></a></p>
+                    </form>
+                </div> 
+            </div> 
+            </div>
+    </nav>
