@@ -3,51 +3,64 @@
  */
 
 import validate from "jquery-validation";
-import 'slick-carousel'
+import "slick-carousel";
 
 $(function () {
-
-  $('.stories').slick({
+  $(".stories").slick({
     slidesToShow: 4,
     adaptiveHeight: true,
     variableWidth: true,
+    responsive: [
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false,
+        },
+      },
+    ],
   });
 
-  $(".location-dropdown .dropdown-menu  a:not(.search-location)").on("click", function (ev) {
-    ev.preventDefault();
-    $(".location-dropdown .dropdown-toggle").text($(this).text());
-    window.location.href = updateQueryStringParameter(
-      window.location.href,
-      "location",
-      $(this).text().toLowerCase()
-    );
-  });
-
-  $('#select-location').valid();
-
-  $('#select-location').on("submit", function(ev){
-    ev.preventDefault();
-  })
-
-  $('.search-location').on("click", function(ev){
-    console.log("click");
-    ev.preventDefault();
-    if($('#select-location').valid()){
-      console.log("valid");
-      $(".location-dropdown .dropdown-toggle").text($('.user-location').val());
-        window.location.href = updateQueryStringParameter(
+  $(".location-dropdown .dropdown-menu  a:not(.search-location)").on(
+    "click",
+    function (ev) {
+      ev.preventDefault();
+      $(".location-dropdown .dropdown-toggle").text($(this).text());
+      window.location.href = updateQueryStringParameter(
         window.location.href,
         "location",
-        $('.user-location').val().toLowerCase()
+        $(this).text().toLowerCase()
+      );
+    }
+  );
+
+  $("#select-location").valid();
+
+  $("#select-location").on("submit", function (ev) {
+    ev.preventDefault();
+  });
+
+  $(".search-location").on("click", function (ev) {
+    console.log("click");
+    ev.preventDefault();
+    if ($("#select-location").valid()) {
+      console.log("valid");
+      $(".location-dropdown .dropdown-toggle").text($(".user-location").val());
+      window.location.href = updateQueryStringParameter(
+        window.location.href,
+        "location",
+        $(".user-location").val().toLowerCase()
       );
     }
   });
 
-  $("#select-location input").on('keyup', function (e) {
-    if (e.key === 'Enter' || e.keyCode === 13) {
-      $('.search-location').trigger('click');
+  $("#select-location input").on("keyup", function (e) {
+    if (e.key === "Enter" || e.keyCode === 13) {
+      $(".search-location").trigger("click");
     }
-});
+  });
 
   $(".donor .dropdown-menu a").on("click", function (ev) {
     ev.preventDefault();
@@ -114,7 +127,19 @@ $(function () {
 
   filter = filter.slice(0, -1);
 
-  $(".tweets-wrapper").html('<div class="spinner-wrapper"><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></div>');
+  $(".tweets-wrapper").html(
+    '<div class="spinner-wrapper"><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></div>'
+  );
+
+  $('.story .active').on("click", function(ev){
+    ev.preventDefault();
+    $('.story-display').fadeIn(500);
+  }); 
+
+  $('.close-story').on("click", function(ev){
+    ev.preventDefault();
+    $('.story-display').fadeOut(500);
+  }); 
 
   $.ajax({
     method: "POST",
@@ -125,7 +150,7 @@ $(function () {
     },
   })
     .done(function (data) {
-      console.log(data)
+      console.log(data);
       data = JSON.parse(data);
       $(".tweets-wrapper").empty();
       data.forEach(function (tweet_data) {
@@ -155,7 +180,10 @@ $(function () {
             tweet_data.featured_image +
             " class='img-fluid'></p>";
         }
-        tweet += "<a href='"+tweet_data.url+"' class='d-none' target='_blank'>View on Twitter</a>";
+        tweet +=
+          "<a href='" +
+          tweet_data.url +
+          "' class='d-none' target='_blank'>View on Twitter</a>";
         tweet += "</div>";
         tweet += "</div>";
         tweet += "</div>";
@@ -180,7 +208,9 @@ $(function () {
     });
     filter = filter.slice(0, -1);
 
-    $(".tweets-wrapper").html('<div class="spinner-wrapper"><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></div>');
+    $(".tweets-wrapper").html(
+      '<div class="spinner-wrapper"><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></div>'
+    );
 
     $.ajax({
       method: "POST",
@@ -221,7 +251,10 @@ $(function () {
               tweet_data.featured_image +
               " class='img-fluid'></p>";
           }
-          tweet += "<a href='"+tweet_data.url+"' class='d-none' target='_blank'>View on Twitter</a>";
+          tweet +=
+            "<a href='" +
+            tweet_data.url +
+            "' class='d-none' target='_blank'>View on Twitter</a>";
           tweet += "</div>";
           tweet += "</div>";
           tweet += "</div>";
@@ -239,7 +272,9 @@ $(function () {
 
           filter = filter.slice(0, -1);
 
-          $(".tweets-wrapper").html('<div class="spinner-wrapper"><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></div>');
+          $(".tweets-wrapper").html(
+            '<div class="spinner-wrapper"><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></div>'
+          );
 
           $.ajax({
             method: "POST",
@@ -279,7 +314,10 @@ $(function () {
                     tweet_data.featured_image +
                     " class='img-fluid'></p>";
                 }
-                tweet += "<a href='"+tweet_data.url+"' class='d-none' target='_blank'>View on Twitter</a>";
+                tweet +=
+                  "<a href='" +
+                  tweet_data.url +
+                  "' class='d-none' target='_blank'>View on Twitter</a>";
                 tweet += "</div>";
                 tweet += "</div>";
                 tweet += "</div>";
@@ -319,9 +357,9 @@ $.validator.addMethod(
 
 function urlify(text) {
   var urlRegex = /(https?:\/\/[^\s]+)/g;
-  return text.replace(urlRegex, function(url) {
-    return '<a target="_blank" href="' + url + '">' + url + '</a>';
-  })
+  return text.replace(urlRegex, function (url) {
+    return '<a target="_blank" href="' + url + '">' + url + "</a>";
+  });
   // or alternatively
   // return text.replace(urlRegex, '<a href="$1">$1</a>')
-} 
+}

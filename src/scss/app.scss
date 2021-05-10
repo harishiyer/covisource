@@ -4,22 +4,23 @@
 @import "~bootstrap/scss/bootstrap";
 @import './variables/_variables.scss';
 @import '~slick-carousel/slick/slick';
-@import '~slick-carousel/slick/slick-theme'; 
+@import '~slick-carousel/slick/slick-theme';
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
 
- 
+
 /**************
  Global
  **************/
 
- html, body{
-     overflow-x: hidden;
-     font-family: 'Noto Sans TC', sans-serif;
- }
+html,
+body {
+    overflow-x: hidden;
+    font-family: 'Noto Sans TC', sans-serif;
+}
 
- a{
-     transition: all 0.2s linear;
- }
+a {
+    transition: all 0.2s linear;
+}
 
 /*
  * navbar
@@ -30,7 +31,7 @@ nav.navbar {
     border-bottom: 1px solid #eee;
     box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
 
-    .dropdown-toggle{
+    .dropdown-toggle {
         background-color: black;
         color: white;
         border-radius: 30px;
@@ -38,30 +39,29 @@ nav.navbar {
         border: 1px solid black;
     }
 
-    .dropdown-toggle:hover{
+    .dropdown-toggle:hover {
         color: $primary-1;
         background-color: white;
-        border: 1px sol
-        id $primary-1;
+        border: 1px sol id $primary-1;
     }
 
-    .dropdown-menu{
+    .dropdown-menu {
         min-width: 220px;
 
-        p.type-location{
+        p.type-location {
             margin-bottom: 0;
             font-size: 14px;
-            padding: 0.25rem 5% 0.25rem ;
+            padding: 0.25rem 5% 0.25rem;
             font-weight: 700;
         }
 
-        input.user-location{
+        input.user-location {
             width: 94%;
             max-width: 200px;
             margin: 5px 3%;
             padding: 7px 10px;
-            background-color: rgb(225,235,220);
-            border-radius: 30px;  
+            background-color: rgb(225, 235, 220);
+            border-radius: 30px;
             outline: none;
             font-size: 14px;
             border: 1px solid transparent;
@@ -78,7 +78,7 @@ nav.navbar {
  Homepage
  **************/
 .content-wrapper {
-    background-color: rgb(225,235,220);
+    background-color: rgb(225, 235, 220);
     padding: 0 15px;
 }
 
@@ -93,11 +93,11 @@ nav.navbar {
         padding-bottom: 15px;
         color: white;
 
-        div.widget-container { 
+        div.widget-container {
             padding: 30px 15px;
             height: 100%;
             background-color: $primary-1;
-            border-radius: 10px; 
+            border-radius: 10px;
 
             h1 {
                 font-size: 1.5rem;
@@ -109,9 +109,9 @@ nav.navbar {
                 padding-bottom: 30px;
             }
 
-            .learn-more{
+            .learn-more {
                 text-align: center;
-                    
+
                 a {
                     color: white;
                     display: inline-block;
@@ -126,22 +126,22 @@ nav.navbar {
                     border: 1px solid $primary-1;
                 }
 
-                a:hover{
+                a:hover {
                     color: $primary-1;
                     background-color: white;
                     border: 1px solid $primary-1;
                 }
             }
 
-            a:hover{
+            a:hover {
                 text-decoration: none;
             }
         }
     }
 }
 
-@media screen and (max-width: 767px){
-    #important-banner{
+@media screen and (max-width: 767px) {
+    #important-banner {
         padding: 30px 0px 30px;
     }
 }
@@ -150,28 +150,113 @@ nav.navbar {
 /*
  * Stories
  */
-.stories{
-    max-width: 445px;
+.stories {
+    max-width: 448px;
     margin-left: auto;
     margin-right: 30px;
 
-    
-    .story{
 
-        div.content{
-            display: flex!important;
+    .story {
+
+        div.content {
+            display: flex !important;
             width: 100px;
             height: 100px;
             background-color: black;
             border-radius: 50%;
-            margin: 0 6px;
+            margin: 6px 6px;
             color: white;
-            border: 2px solid white;
+            position: relative;
+            cursor: pointer;
+            font-size: 14px;
+            line-height: 1.1;
+            text-align: center;
 
-            .inner-content{
+            .inner-content {
                 margin: auto;
             }
         }
+
+        div.content::before {
+            position: absolute;
+            content: '';
+            height: calc(100% + 10px);
+            width: calc(100% + 10px);
+            border: 3px dashed #218838;
+            top: -5px;
+            left: -5px;
+            border-radius: inherit;
+        }
+
+        div.content:hover::before {
+            animation: spin 10s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotateZ(360deg);
+            }
+        }
+
+        .description {
+            font-size: 12px;
+            line-height: 1.1;
+            font-weight: bold;
+        }
+    }
+}
+
+.story-display {
+    display: none;
+    background-color: rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    padding: 15px;
+
+    .single-story{
+        max-width: 600px;
+        width: 100%;
+    }
+
+    .close-story {
+        color: white;
+        font-size: 1.5rem;
+        right: 15px;
+        top: 15px;
+        position: absolute;
+    }
+
+    @media screen and (max-width: 767px) {
+        .close-story {
+            top: 20px;
+            right: 25px;
+            color: black;
+        }
+    }
+
+    .single-story{
+        background-color: white;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 20%);
+        border-radius: 8px;
+    } 
+}
+
+@media screen and (max-width: 767px) {
+    .stories {
+        max-width: 97%;
+
+        .slick-prev {
+            left: -20px
+        }
+
+        .slick-next {
+            right: -20px
+        }
+
     }
 }
 
@@ -179,12 +264,12 @@ nav.navbar {
 /*
  * twitter-feed
  */
-.mid-section{
+.mid-section {
     padding: 25px 30px 0;
 }
 
-@media screen and (max-width: 767px){
-    .mid-section{
+@media screen and (max-width: 767px) {
+    .mid-section {
         padding: 25px 0px 0;
     }
 }
@@ -195,43 +280,44 @@ nav.navbar {
  * twitter-feed
  */
 
-#twitter-feed{
+#twitter-feed {
     border-radius: 3px;
     margin-bottom: 15px;
     margin-top: 80px;
 
-    .data-filter-list{
+    .data-filter-list {
         width: 100%;
         max-width: 150px;
     }
 
-    h1{
+    h1 {
         font-size: 1.5rem;
         margin-bottom: 15px;
     }
 
-    .masonary-wrapper{
-        max-height: 100vh; 
+    .masonary-wrapper {
+        max-height: 100vh;
         overflow-y: scroll;
         margin: 0 25px;
+        width: 100%;
     }
 
-    @media screen and (max-width: 767px){
-        .masonary-wrapper{
+    @media screen and (max-width: 767px) {
+        .masonary-wrapper {
             max-height: 100%;
             margin: auto;
         }
 
     }
 
-    .tweets-wrapper{
+    .tweets-wrapper {
         width: 100%;
         columns: 4 350px;
-        column-gap: 1rem; 
-        
-        .tweet{
+        column-gap: 1rem;
+
+        .tweet {
             display: inline-block;
-            color: #111; 
+            color: #111;
             background: #f7f7f7;
             border-radius: 10px;
             min-height: 300px;
@@ -239,18 +325,18 @@ nav.navbar {
             padding: 20px 30px;
             margin-bottom: 1rem;
             background-color: white;
-            -webkit-box-shadow: -2px -1px 7px 4px #E5E5E5; 
+            -webkit-box-shadow: -2px -1px 7px 4px #E5E5E5;
             box-shadow: 0px 0px 4px 1px #E5E5E5;
 
-            .twitter-profile-image{
+            .twitter-profile-image {
                 max-width: 48px;
                 width: 100%;
                 border-radius: 50%;
             }
         }
 
-        @media screen and (max-width: 767px){
-            .tweet{
+        @media screen and (max-width: 767px) {
+            .tweet {
                 width: auto;
                 margin-left: 15px;
                 margin-right: 15px;
@@ -260,45 +346,46 @@ nav.navbar {
 
 }
 
-.spinner-wrapper{
+.spinner-wrapper {
     height: 100vh;
     width: 100%;
     display: flex;
 
-    .spinner-border{
+    .spinner-border {
         margin-bottom: 40px;
     }
 }
 
-@media screen and (max-width: 767px){
-    .spinner-wrapper{
+@media screen and (max-width: 767px) {
+    .spinner-wrapper {
         height: 50px;
     }
-} 
+}
 
 
 /**************
  Donors
  **************/
 
- .banner{
+.banner {
     padding: 75px 0px;
- }  
+}
 
- #twitter-post{
-     padding-top: 50px;
+#twitter-post {
+    padding-top: 50px;
 
-    input, textarea{
+    input,
+    textarea {
         border: 2px solid black;
         background-color: transparent;
         border-radius: 5px;
-        padding: 10px 10px; 
+        padding: 10px 10px;
     }
 
- }
+}
 
-@media screen and (max-width: 767px){
-    #twitter-post{
+@media screen and (max-width: 767px) {
+    #twitter-post {
         padding-top: 0px;
     }
 }

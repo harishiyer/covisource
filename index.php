@@ -105,7 +105,7 @@
         <div class="col-12 col-lg-12 col-xl-12 order-first order-md-first">
             <section id="twitter-feed">
                 <div class="row mx-md-0">
-                    <div class="col-12 col-xl-6 px-xl-4 pb-0 pt-4">
+                    <div class="col-12 col-xl-6 px-xl-4 pb-0 pt-4 order-2 order-xl-first">
                         <h1>Latest COVID-19 data from twitter</h1>
                         <div class="row">
                             <div class="col-12 col-md-6">
@@ -142,30 +142,33 @@
                         <br>
                     </div>
 
-                    <div class="col-12 px-md-4 col-xl-5 pb-5 offset-xl-1 d-flex">
-                        <div class="w-100 stories ml-xl-auto mr-auto ml-0 my-auto d-none">
+                    <div class="col-12 px-md-4 col-xl-5 pt-2 pb-xl-5 offset-xl-1 d-flex order-first order-xl-2">
+                        <div class="w-100 stories ml-xl-auto mx-auto ml-md-0 mr-md-auto ml-0 mt-auto">
                             <div class="story">
-                                <div class="content"><div class="inner-content">abc</div></div>
+                                <div style="background-color: #ef4437" class="content active"><div class="inner-content">Vaccination</div></div>
+                                <!--div class="text-center description">
+                                    <p>Vaccination<br>Slots<p>
+                                </div-->
                             </div> 
                             <div class="story">
-                                <div class="content"><div class="inner-content">abc</div></div>
+                                <div class="content"><div class="inner-content">Comming<br>Soon</div></div>
                             </div>
                             <div class="story">
-                                <div class="content"><div class="inner-content">abc</div></div>
+                                <div class="content"><div class="inner-content">Comming<br>Soon</div></div>
                             </div>
                             <div class="story">
-                                <div class="content"><div class="inner-content">abc</div></div>
+                                <div class="content"><div class="inner-content">Comming<br>Soon</div></div>
                             </div>
                             <div class="story">
-                                <div class="content"><div class="inner-content">abc</div></div>
+                                <div class="content"><div class="inner-content">Comming<br>Soon</div></div>
                             </div>
                             <div class="story">
-                                <div class="content"><div class="inner-content">abc</div></div>
+                                <div class="content"><div class="inner-content">Comming<br>Soon</div></div>
                             </div>
                         </div>
                     </div>
  
-                    <div class="masonary-wrapper">
+                    <div class="masonary-wrapper order-last">
                         <div class="tweets-wrapper">
                         
                         </div>  
