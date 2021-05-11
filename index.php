@@ -112,23 +112,22 @@
                                 <div class="dropdown show dropright">
                                     <a class="btn btn-secondary dropdown-toggle data-filter-list" href="#" role="button" id="dropdownMenuLink"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Filter
+                                        Need
                                     </a>
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                         <a class="dropdown-item" href="#">Oxygen</a>
-                                        <a class="dropdown-item" href="#">Need Oxygen</a>
+                                        <a class="dropdown-item" href="#">Oxygen Cylinder</a>
                                         <a class="dropdown-item" href="#">Oxygen Concentrator</a>
                                         <a class="dropdown-item" href="#">Plasma</a>
-                                        <a class="dropdown-item" href="#">Need Plasma</a>
-                                        <a class="dropdown-item" href="#">Donate Plasma</a>
-                                        <a class="dropdown-item" href="#">Donate Blood</a>
+                                        <a class="dropdown-item" href="#">Blood</a>
                                         <a class="dropdown-item" href="#">ICU</a>
-                                        <a class="dropdown-item" href="#">Need ICU</a>
                                         <a class="dropdown-item" href="#">Beds</a>
-                                        <a class="dropdown-item" href="#">Need Beds</a>
-                                        <a class="dropdown-item" href="#">Beds Available</a>
+                                        <a class="dropdown-item" href="#">Hospital Beds</a>
                                         <a class="dropdown-item" href="#">Vaccination</a>
+                                        <a class="dropdown-item" href="#">Remdesivir</a>
+                                        <a class="dropdown-item" href="#">Tocilizumab</a>
+                                        <a class="dropdown-item" href="#">Ambulance</a>
                                     </div>
                                 </div>
                             </div>
