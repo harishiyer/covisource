@@ -122,6 +122,7 @@
                                         <a class="dropdown-item" href="#">Plasma</a>
                                         <a class="dropdown-item" href="#">Blood</a>
                                         <a class="dropdown-item" href="#">ICU</a>
+                                        <a class="dropdown-item" href="#">Ventilator</a>
                                         <a class="dropdown-item" href="#">Beds</a>
                                         <a class="dropdown-item" href="#">Hospital Beds</a>
                                         <a class="dropdown-item" href="#">Vaccination</a>

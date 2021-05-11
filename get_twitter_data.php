@@ -32,7 +32,7 @@ if($i==4){
     $query_string = substr($query_string, 0, -3);
 }
 
-$query_string = $query_string." "." AND #".$location." -filter:retweets"; 
+$query_string = $query_string." OR verified "." AND #".$location." -filter:retweets"; 
 
 $connection = new TwitterOAuth($_ENV['OAUTH_ACCESS_TOKEN'], $_ENV['OAUTH_ACCESS_TOKEN_SECRET'], $_ENV['YOUR_CONSUMER_KEY'], $_ENV['YOUR_CONSUMER_SECRET']);
 $statuses = $connection->get("search/tweets", ["q" => $query_string, 'result_type' => 'recent', 'count' => '100', 'tweet_mode' => 'extended', 'include_entities' => 'true']);
