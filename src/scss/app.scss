@@ -203,6 +203,14 @@ nav.navbar {
             line-height: 1.1;
             font-weight: bold;
         }
+
+        @media screen and (max-width: 767px) {
+            div.content{ 
+                width: 72px;
+                height: 72px;
+                font-size: 12px;
+            }
+        }
     }
 }
 
