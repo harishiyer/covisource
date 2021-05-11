@@ -9,27 +9,8 @@
   <div class="story-display">
     <div class="d-flex flex-column mx-auto single-story" style="height: 100%">
       <a class="close-story" href="javascript:void(0);"><i class="fa fa-times"></i></a>
-      <div class="text-center my-auto">
-        <div class="pb-3"><img src="https://healthifyme.imgix.net/static/images/vaccinateme/logo_v3.svg" class="img-fluid"></div>
+      <div class="content text-center my-auto">
         
-        <div dir="col" class="">
-
-          <div class="pb-3">
-            <div class="">
-              <span color="text-color" class="">Powered by</span>
-              <a href="https://www.healthifyme.com" target="_blank" rel="noreferrer">
-                <img src="https://healthifyme.imgix.net/static/images/logos/Hme_logo_black.png" alt="HealthifyMe" class="">
-              </a>
-            </div>
-          </div>
-          
-          <div class="pb-5 mb-4">
-            <span color="text-color" class="">India's Largest Health and Fitness App</span>
-          </div>
-
-          <a href="https://www.vaccinateme.in/covid/" target="_blank">Learn More</a>
-
-        </div>
       </div>
     </div>
   </div>

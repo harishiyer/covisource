@@ -133,12 +133,27 @@ $(function () {
 
   $('.story .active').on("click", function(ev){
     ev.preventDefault();
+    var data_type = $(this).data('type');
+    if(data_type == 'video'){
+      var video_html = '<div class="embed-responsive embed-responsive-1by1 my-auto">';
+          video_html += '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/xTvd7oAEyhs?&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+          video_html += '</div>';
+      $('.story-display .single-story .content').html(video_html);
+      $('.story-display .single-story').css({'background-color' : 'black', 'box-shadow' : '0px 0px 6px white'});
+      $('.story-display .close-story').css({'color' : 'white'});
+    }else{
+      var story_content = $(this).find('.story-content').html();
+      $('.story-display .single-story .content').html(story_content);
+    }
     $('.story-display').fadeIn(500);
   }); 
 
   $('.close-story').on("click", function(ev){
     ev.preventDefault();
-    $('.story-display').fadeOut(500);
+    $('.story-display').fadeOut(500, function(){
+      $('.story-display .single-story').css({'background-color' : '', 'box-shadow' : ''});
+      $('.story-display .close-story').css({'color' : ''});
+    });
   }); 
 
   $.ajax({

@@ -145,13 +145,32 @@
                     <div class="col-12 px-md-4 col-xl-5 pt-2 pb-xl-5 offset-xl-1 d-flex order-first order-xl-2">
                         <div class="w-100 stories ml-xl-auto mx-auto ml-md-0 mr-md-auto ml-0 mt-auto">
                             <div class="story">
-                                <div style="background-color: #ef4437" class="content active"><div class="inner-content">Vaccination</div></div>
+                                <div style="background-color: #ef4437" class="content active">
+                                    <div class="inner-content">Vaccination</div>
+                                    <div class="story-content d-none">
+                                    <div class="pb-3"><img src="https://healthifyme.imgix.net/static/images/vaccinateme/logo_v3.svg" class="img-fluid"></div>
+                                        <div dir="col" class="">
+                                            <div class="pb-3">
+                                                <div class="">
+                                                <span color="text-color" class="">Powered by</span>
+                                                <a href="https://www.healthifyme.com" target="_blank" rel="noreferrer">
+                                                    <img src="https://healthifyme.imgix.net/static/images/logos/Hme_logo_black.png" alt="HealthifyMe" class="">
+                                                </a>
+                                                </div>
+                                            </div>
+                                            <div class="pb-5 mb-4">
+                                                <span color="text-color" class="">India's Largest Health and Fitness App</span>
+                                            </div>
+                                            <a href="https://www.vaccinateme.in/covid/" target="_blank">Learn More</a>
+                                        </div>
+                                    </div>
+                                </div>
                                 <!--div class="text-center description">
                                     <p>Vaccination<br>Slots<p>
                                 </div-->
                             </div> 
                             <div class="story">
-                                <div class="content"><div class="inner-content">Comming<br>Soon</div></div>
+                                <div style="background-color: #ef4437" class="content active" data-type="video"><div class="inner-content">Mild Covid Homecare</div></div>
                             </div>
                             <div class="story">
                                 <div class="content"><div class="inner-content">Comming<br>Soon</div></div>
