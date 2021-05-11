@@ -151,6 +151,7 @@ $(function () {
   $('.close-story').on("click", function(ev){
     ev.preventDefault();
     $('.story-display').fadeOut(500, function(){
+      $('.story-display .single-story .content').empty();
       $('.story-display .single-story').css({'background-color' : '', 'box-shadow' : ''});
       $('.story-display .close-story').css({'color' : ''});
     });
