@@ -70,7 +70,7 @@ $(function () {
     });
   });
 
-  $("#twitter-post input").on("keyup", function (ev) {
+  $("#twitter-post input:not([type='email'])").on("keyup", function (ev) {
     var word_count = 0;
     $("#twitter-post input").each(function () {
       word_count = word_count + $(this).val().length;
@@ -86,11 +86,16 @@ $(function () {
 
   $("#twitter-post").on("submit", function (ev) {
     ev.preventDefault();
+
     $("#twitter-post").validate();
     if ($("#twitter-post").valid()) {
       var name = $("#twitter-post #name").val();
       var message = $("#twitter-post #message").val();
       var contact = $("#twitter-post #contact").val();
+      var email = $("#twitter-post #email").val();
+
+      $('.submit-button-wrapper').hide();
+      $('.confirmation-message').html('<p><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></p>');
 
       $.ajax({
         method: "POST",
@@ -99,14 +104,17 @@ $(function () {
           name: name,
           message: message,
           contact: contact,
+          email: email,
           authorised_access: true,
         },
       })
         .done(function (data) {
-          console.log(data);
+          $('.confirmation-message').html("<p>"+data+"</p>");
         })
         .fail(function (jqXHR, textStatus) {
-          alert("Twitter fetch failed. Please reload. Error : " + textStatus);
+          alert("Message sending failed. Please reload. Error : " + textStatus);
+          $('.confirmation-message').hide();
+          $('.submit-button-wrapper').show();
         });
     }
   });
@@ -130,31 +138,39 @@ $(function () {
     '<div class="spinner-wrapper"><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></div>'
   );
 
-  $('.story .active').on("click", function(ev){
+  $(".story .active").on("click", function (ev) {
     ev.preventDefault();
-    var data_type = $(this).data('type');
-    if(data_type == 'video'){
-      var video_html = '<div class="embed-responsive embed-responsive-1by1 my-auto">';
-          video_html += '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/xTvd7oAEyhs?&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-          video_html += '</div>';
-      $('.story-display .single-story .content').html(video_html);
-      $('.story-display .single-story').css({'background-color' : 'black', 'box-shadow' : '0px 0px 6px white'});
-      $('.story-display .close-story').css({'color' : 'white'});
-    }else{
-      var story_content = $(this).find('.story-content').html();
-      $('.story-display .single-story .content').html(story_content);
+    var data_type = $(this).data("type");
+    if (data_type == "video") {
+      var video_html =
+        '<div class="embed-responsive embed-responsive-1by1 my-auto">';
+      video_html +=
+        '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/xTvd7oAEyhs?&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+      video_html += "</div>";
+      $(".story-display .single-story .content").html(video_html);
+      $(".story-display .single-story").css({
+        "background-color": "black",
+        "box-shadow": "0px 0px 6px white",
+      });
+      $(".story-display .close-story").css({ color: "white" });
+    } else {
+      var story_content = $(this).find(".story-content").html();
+      $(".story-display .single-story .content").html(story_content);
     }
-    $('.story-display').fadeIn(500);
-  }); 
+    $(".story-display").fadeIn(500);
+  });
 
-  $('.close-story').on("click", function(ev){
+  $(".close-story").on("click", function (ev) {
     ev.preventDefault();
-    $('.story-display').fadeOut(500, function(){
-      $('.story-display .single-story .content').empty();
-      $('.story-display .single-story').css({'background-color' : '', 'box-shadow' : ''});
-      $('.story-display .close-story').css({'color' : ''});
+    $(".story-display").fadeOut(500, function () {
+      $(".story-display .single-story .content").empty();
+      $(".story-display .single-story").css({
+        "background-color": "",
+        "box-shadow": "",
+      });
+      $(".story-display .close-story").css({ color: "" });
     });
-  }); 
+  });
 
   $.ajax({
     method: "POST",
@@ -166,7 +182,7 @@ $(function () {
   })
     .done(function (data) {
       data = JSON.parse(data);
-      
+
       $(".tweets-wrapper").empty();
       data.forEach(function (tweet_data) {
         var tweet = "<div class='tweet'>";
@@ -349,6 +365,17 @@ $(function () {
       .fail(function (jqXHR, textStatus) {
         alert("Twitter fetch failed. Please reload. Error : " + textStatus);
       });
+  });
+
+  $('.contact-button').on('click', function(){
+    $('.contact-form').fadeToggle();
+    $('.contact-button').fadeToggle();
+  });
+
+  $(".close-contact-form").on("click", function (ev) {
+    ev.preventDefault();
+    $('.contact-form').fadeToggle();
+    $('.contact-button').fadeToggle();
   });
 });
 
