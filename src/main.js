@@ -43,7 +43,6 @@ $(function () {
   });
 
   $(".search-location").on("click", function (ev) {
-    console.log("click");
     ev.preventDefault();
     if ($("#select-location").valid()) {
       console.log("valid");
@@ -166,8 +165,8 @@ $(function () {
     },
   })
     .done(function (data) {
-      console.log(data);
       data = JSON.parse(data);
+      
       $(".tweets-wrapper").empty();
       data.forEach(function (tweet_data) {
         var tweet = "<div class='tweet'>";

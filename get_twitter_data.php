@@ -7,6 +7,7 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 $location = $_POST['location'];
+$default_search_keywords = "COVID OR covid-19 OR covid19 OR coronavirus";
 
 $filters = "";
 
@@ -32,7 +33,8 @@ if($i==4){
     $query_string = substr($query_string, 0, -3);
 }
 
-$query_string = $query_string." OR verified "." AND #".$location." -filter:retweets"; 
+$query_string = $default_search_keywords." ".$query_string." OR verified "." AND #".$location." -filter:retweets"; 
+
 
 $connection = new TwitterOAuth($_ENV['OAUTH_ACCESS_TOKEN'], $_ENV['OAUTH_ACCESS_TOKEN_SECRET'], $_ENV['YOUR_CONSUMER_KEY'], $_ENV['YOUR_CONSUMER_SECRET']);
 $statuses = $connection->get("search/tweets", ["q" => $query_string, 'result_type' => 'recent', 'count' => '100', 'tweet_mode' => 'extended', 'include_entities' => 'true']);
@@ -84,6 +86,7 @@ foreach($statuses as $status){
     }
 
 } 
+
 echo json_encode($twitter_data);
 die(0);
 ?>

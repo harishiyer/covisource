@@ -110,9 +110,9 @@
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="dropdown show dropright">
-                                    <a class="btn btn-secondary dropdown-toggle data-filter-list" href="#" role="button" id="dropdownMenuLink"
+                                    <a class="btn btn-success dropdown-toggle data-filter-list" href="#" role="button" id="dropdownMenuLink"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Need
+                                        Looking for ?
                                     </a>
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -133,10 +133,7 @@
                                 </div>
                             </div>
                             <div class="col-12 pt-4 pb-2 covid-data-filter">
-                                <a href="javascript: void(0);" class="btn btn-success mr-2 px-4 mb-3">Covid</a>
-                                <a href="javascript: void(0);" class="btn btn-success mr-2 px-4 mb-3">Covid-19</a>
-                                <a href="javascript: void(0);" class="btn btn-success mr-2 px-4 mb-3">Covid19</a>
-                                <a href="javascript: void(0);" class="btn btn-success mr-2 px-4 mb-3">Coronavirus</a>
+                              
                             </div>
                         </div>
                         <br>
