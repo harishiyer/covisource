@@ -370,6 +370,7 @@ $(function () {
   $('.contact-button').on('click', function(){
     $('.contact-form').fadeToggle();
     $('.contact-button').fadeToggle();
+    $('.location-dropdown').fadeToggle();
   });
 
   $(".close-contact-form").on("click", function (ev) {

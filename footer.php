@@ -99,8 +99,7 @@
         ?>
 <script>
     $('.location-dropdown .dropdown-menu-right a').each(function () {
-        if ($(this).data('name') == '<?php echo $_GET['
-            location ']; ?>') {
+        if ($(this).data('name') == '<?php echo $_GET['location']; ?>') {
             $('.location-dropdown .dropdown-toggle').text($(this).text());
         }
     }).promise().done(function () {
