@@ -370,13 +370,14 @@ $(function () {
   $('.contact-button').on('click', function(){
     $('.contact-form').fadeToggle();
     $('.contact-button').fadeToggle();
-    $('.location-dropdown').fadeToggle();
+    $('.location-dropdown').fadeOut();
   });
 
   $(".close-contact-form").on("click", function (ev) {
     ev.preventDefault();
     $('.contact-form').fadeToggle();
     $('.contact-button').fadeToggle();
+    $('.location-dropdown').fadeIn();
   });
 });
 
