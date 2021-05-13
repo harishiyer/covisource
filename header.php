@@ -14,12 +14,12 @@
 
     <meta property="og:title" content="CoviSource">
     <meta property="og:description" content="Find covid related news and resources and help the community combat COVID-19">
-    <meta property="og:image" content="/assets/images/covisource-OG@2x.jpg">
+    <meta property="og:image" content="https://covisource.com/assets/images/covisource-OG@2x.jpg">
     <meta property="og:url" content="http://euro-travel-example.com/index.htm">
 
     <meta name="twitter:title" content="CoviSource">
     <meta name="twitter:description" content="Find covid related news and resources and help the community combat COVID-19">
-    <meta name="twitter:image" content="/assets/images/covisource-OG@2x.jpg">
+    <meta name="twitter:image" content="https://covisource.com/assets/images/covisource-OG@2x.jpg">
     <meta name="twitter:card" content="summary_large_image">
 
     <meta name="robots" content="index, follow">
