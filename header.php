@@ -15,7 +15,7 @@
     <meta property="og:title" content="CoviSource">
     <meta property="og:description" content="Find covid related news and resources and help the community combat COVID-19">
     <meta property="og:image" content="https://covisource.com/assets/images/covisource-OG@2x.jpg">
-    <meta property="og:url" content="http://euro-travel-example.com/index.htm">
+    <meta property="og:url" content="https://covisource.com/">
 
     <meta name="twitter:title" content="CoviSource">
     <meta name="twitter:description" content="Find covid related news and resources and help the community combat COVID-19">
