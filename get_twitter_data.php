@@ -23,7 +23,7 @@ for($i=0; $i < $total_filter; $i++){
         $query_string = substr($query_string, 0, -3);
     }
     if($i > 3){
-        $query_string = $query_string."AND ".$filters[$i]." Available ";
+        $query_string = $query_string."OR ".$filters[$i]." Available ";
     }else{
         $query_string = $query_string.$filters[$i]." OR ";
     }
