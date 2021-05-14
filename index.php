@@ -146,34 +146,53 @@
                             <div class="story">
                                 <div style="background-color: #ef4437" class="content active">
                                     <div class="inner-content">Vaccination</div>
-                                    <div class="story-content d-none">
-                                    <div class="pb-3"><img src="https://healthifyme.imgix.net/static/images/vaccinateme/logo_v3.svg" class="img-fluid"></div>
-                                        <div dir="col" class="">
-                                            <div class="pb-3">
-                                                <div class="">
-                                                <span color="text-color" class="">Powered by</span>
-                                                <a href="https://www.healthifyme.com" target="_blank" rel="noreferrer">
-                                                    <img src="https://healthifyme.imgix.net/static/images/logos/Hme_logo_black.png" alt="HealthifyMe" class="">
-                                                </a>
+                                        <div class="story-content d-none">
+                                            <div class="pb-3"><img src="https://healthifyme.imgix.net/static/images/vaccinateme/logo_v3.svg" class="img-fluid"></div>
+                                                <div dir="col" class="">
+                                                    <div class="pb-3">
+                                                        <div class="">
+                                                            <span color="text-color" class="">Powered by</span>
+                                                            <a href="https://www.healthifyme.com" target="_blank" rel="noreferrer">
+                                                                <img src="https://healthifyme.imgix.net/static/images/logos/Hme_logo_black.png" alt="HealthifyMe" class="">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pb-5 mb-4">
+                                                        <span color="text-color" class="">India's Largest Health and Fitness App</span>
+                                                    </div>
+                                                    <a href="https://www.vaccinateme.in/covid/" target="_blank">Learn More</a>
                                                 </div>
                                             </div>
-                                            <div class="pb-5 mb-4">
-                                                <span color="text-color" class="">India's Largest Health and Fitness App</span>
-                                            </div>
-                                            <a href="https://www.vaccinateme.in/covid/" target="_blank">Learn More</a>
                                         </div>
-                                    </div>
-                                </div>
-                                <!--div class="text-center description">
-                                    <p>Vaccination<br>Slots<p>
-                                </div-->
-                            </div> 
+                                        <!--div class="text-center description">
+                                            <p>Vaccination<br>Slots<p>
+                                        </div-->
+                                    </div> 
                             <div class="story">
                                 <div style="background-color: #ef4437" class="content active" data-type="video"><div class="inner-content">Mild Covid Homecare</div></div>
                             </div>
                             <div class="story">
-                                <div class="content"><div class="inner-content">Coming<br>Soon</div></div>
-                            </div>
+                                <div style="background-color: #ef4437" class="content active">
+                                    <div class="inner-content">Donate</div>
+                                    <div class="story-content d-none">
+                                        <div class="pb-3"><img src="https://assets.website-files.com/6083413c0067e35e8da3928e/6085088e695f4a6b7c557f8d_Header%20Image.png" class="img-fluid"></div>
+                                            <div dir="col" class="">
+                                                <div class="pb-3">
+                                                    <div class="">
+                                                        <span color="text-color" class="">The Time to</span>
+                                                        <a href="https://donate.indiacovidresources.in/" target="_blank" rel="noreferrer">
+                                                        Act is Now
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="pb-4 mb-2 px-5">
+                                                    <span color="text-color" class="">The Covid-19 second wave has had a disastrous impact on us all living in India.<br>The product community is coming together for providing Covid-relief and trying to ease the suffering of families caught in the eye of the pandemic storm - with donations from you.</span>
+                                                </div>
+                                                <a href="https://donate.indiacovidresources.in/" target="_blank">Donate Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             <div class="story">
                                 <div class="content"><div class="inner-content">Coming<br>Soon</div></div>
                             </div>

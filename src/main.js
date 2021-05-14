@@ -221,6 +221,13 @@ $(function () {
         tweet += "</div>";
         $(".tweets-wrapper").append(tweet);
       });
+
+
+      console.log(data.length+" data "+data);
+
+      if(data.length == 0){
+        $(".tweets-wrapper").html("<h4 class='py-5 my-5 px-3'>No results found! Please try searching nearby cities or send us a message.</h4>");
+      }
     })
     .fail(function (jqXHR, textStatus) {
       alert("Twitter fetch failed. Please reload. Error : " + textStatus);
@@ -293,6 +300,10 @@ $(function () {
           $(".tweets-wrapper").append(tweet);
         });
 
+        if(data.length == 0){
+          $(".tweets-wrapper").html("<h4 class='py-5 my-5 px-3'>No results found! Please try searching nearby cities or send us a message.</h4>");
+        }
+
         $(".is-removable").on("click", function (ev) {
           ev.preventDefault();
           $(this).remove();
@@ -355,6 +366,10 @@ $(function () {
                 tweet += "</div>";
                 $(".tweets-wrapper").append(tweet);
               });
+
+              if(data.length == 0){
+                $(".tweets-wrapper").html("<h4 class='py-5 my-5 px-3'>No results found! Please try searching nearby cities or send us a message.</h4>");
+              }
             })
             .fail(function (jqXHR, textStatus) {
               alert(
