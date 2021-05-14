@@ -46,7 +46,6 @@ $(function () {
   $(".search-location").on("click", function (ev) {
     ev.preventDefault();
     if ($("#select-location").valid()) {
-      console.log("valid");
       $(".location-dropdown .dropdown-toggle").text($(".user-location").val());
       window.location.href = updateQueryStringParameter(
         window.location.href,
@@ -221,9 +220,6 @@ $(function () {
         tweet += "</div>";
         $(".tweets-wrapper").append(tweet);
       });
-
-
-      console.log(data.length+" data "+data);
 
       if(data.length == 0){
         $(".tweets-wrapper").html("<h4 class='py-5 my-5 px-3'>No results found! Please try searching nearby cities or send us a message.</h4>");
