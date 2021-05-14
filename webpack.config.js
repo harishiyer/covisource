@@ -25,10 +25,12 @@ module.exports = {
             // Loader for webpack to process CSS with PostCSS
             loader: 'postcss-loader',
             options: {
-              plugins: function () {
-                return [
-                  require('autoprefixer')
-                ];
+              postcssOptions:{
+                plugins: function () {
+                  return [
+                    require('autoprefixer')
+                  ];
+                }
               }
             }
           },

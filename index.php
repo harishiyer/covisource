@@ -170,16 +170,16 @@
                                 <div style="background-color: #ef4437" class="content active" data-type="video"><div class="inner-content">Mild Covid Homecare</div></div>
                             </div>
                             <div class="story">
-                                <div class="content"><div class="inner-content">Comming<br>Soon</div></div>
+                                <div class="content"><div class="inner-content">Coming<br>Soon</div></div>
                             </div>
                             <div class="story">
-                                <div class="content"><div class="inner-content">Comming<br>Soon</div></div>
+                                <div class="content"><div class="inner-content">Coming<br>Soon</div></div>
                             </div>
                             <div class="story">
-                                <div class="content"><div class="inner-content">Comming<br>Soon</div></div>
+                                <div class="content"><div class="inner-content">Coming<br>Soon</div></div>
                             </div>
                             <div class="story">
-                                <div class="content"><div class="inner-content">Comming<br>Soon</div></div>
+                                <div class="content"><div class="inner-content">Coming<br>Soon</div></div>
                             </div>
                         </div>
                     </div>

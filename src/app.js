@@ -10,6 +10,11 @@ window.$ = require('jquery');
 import 'bootstrap';
 import './scss/app.scss';
 
+/*
+ * Import Translations
+ */
+require('./translation.js');
+
 /* 
  * Import our main js file
  */

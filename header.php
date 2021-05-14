@@ -63,7 +63,7 @@
         <div class="ml-2">
             <div style="margin-top: 6px" class="dropdown location-dropdown show float-left ml-3">
                 <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Location</a>
+                    aria-haspopup="true" aria-expanded="false">{strings.location}</a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" data-name="mumbai" href="#">Mumbai</a>
@@ -79,6 +79,7 @@
                     <p class="type-location">Or Type Location</p>
                     <form id="select-location">
                     <input type="text" name="user_location" class="user-location" placeholder="Enter Location" required>
+                    
                     <p class="type-location text-right text-center text-md-right"><a href="javascript:void(0)" class="search-location">Search <span class="fa fa-arrow-right"></span></a></p>
                     </form>
                 </div> 
