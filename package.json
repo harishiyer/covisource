@@ -17,6 +17,7 @@
     "jquery": "^3.6.0",
     "jquery-validation": "^1.19.3",
     "localized-strings": "^0.2.4",
+    "precss": "^4.0.0",
     "select2": "*",
     "slick-carousel": "^1.8.1"
   },

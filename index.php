@@ -129,6 +129,8 @@
                                         <a class="dropdown-item" href="#">Remdesivir</a>
                                         <a class="dropdown-item" href="#">Tocilizumab</a>
                                         <a class="dropdown-item" href="#">Ambulance</a>
+                                        <a class="dropdown-item" href="#">Food</a>
+                                        <a class="dropdown-item" href="#">Medicines</a>
                                     </div>
                                 </div>
                             </div>

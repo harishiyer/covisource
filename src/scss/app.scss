@@ -1,16 +1,17 @@
 /**************
  Imports
  **************/
-@import "~bootstrap/scss/bootstrap";
+@import "../../node_modules/bootstrap/scss/bootstrap";  
 @import './variables/_variables.scss';
-@import '~slick-carousel/slick/slick';
-@import '~slick-carousel/slick/slick-theme';
+@import '../../node_modules/slick-carousel/slick/slick';
+@import '../../node_modules/slick-carousel/slick/slick-theme';
+@import '../../node_modules/select2/src/scss/core.scss';
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
 
 
 /**************
  Global
- **************/
+ **************/ 
 
 html,
 body {

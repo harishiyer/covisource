@@ -6,6 +6,7 @@ import validate from "jquery-validation";
 import "slick-carousel";
 
 $(function () {
+
   $(".stories").slick({
     slidesToShow: 4,
     adaptiveHeight: true,
@@ -21,7 +22,7 @@ $(function () {
         },
       },
     ],
-  });
+  }); 
 
   $(".location-dropdown .dropdown-menu  a:not(.search-location)").on(
     "click",
@@ -369,7 +370,7 @@ $(function () {
 
   $('.contact-button').on('click', function(){
     $('.contact-form').fadeToggle();
-    $('.contact-button').fadeToggle();
+    $('.contact-button').fadeToggle(); 
     $('.location-dropdown').fadeOut();
   });
 
@@ -379,6 +380,7 @@ $(function () {
     $('.contact-button').fadeToggle();
     $('.location-dropdown').fadeIn();
   });
+
 });
 
 function updateQueryStringParameter(uri, key, value) {
