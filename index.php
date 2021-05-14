@@ -175,7 +175,7 @@
                                 <div style="background-color: #ef4437" class="content active">
                                     <div class="inner-content">Donate</div>
                                     <div class="story-content d-none">
-                                        <div class="pb-3"><img src="https://assets.website-files.com/6083413c0067e35e8da3928e/6085088e695f4a6b7c557f8d_Header%20Image.png" class="img-fluid"></div>
+                                        <div class="pb-3"><img src="https://assets.website-files.com/6083413c0067e35e8da3928e/6085088e695f4a6b7c557f8d_Header%20Image.png" class="img-fluid" style="max-width: 200px"></div>
                                             <div dir="col" class="">
                                                 <div class="pb-3">
                                                     <div class="">

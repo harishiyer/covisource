@@ -11821,6 +11821,12 @@ body {
   font-family: 'Noto Sans TC', sans-serif;
 }
 
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 0.8rem;
+  }
+}
+
 a {
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
@@ -12043,6 +12049,11 @@ nav.navbar .dropdown-menu input.user-location {
 .story-display .single-story {
   max-width: 600px;
   width: 100%;
+}
+
+.story-display .single-story .content {
+  overflow-y: scroll;
+  padding-bottom: 30px;
 }
 
 .story-display .close-story {

@@ -19,6 +19,12 @@ body {
     font-family: 'Noto Sans TC', sans-serif;
 }
 
+@media screen and (max-width: 320px){
+    html{
+        font-size: 0.8rem;
+    }
+}
+
 a {
     transition: all 0.2s linear;
 }
@@ -233,6 +239,11 @@ nav.navbar {
     .single-story {
         max-width: 600px;
         width: 100%;
+
+        .content{
+            overflow-y: scroll;
+            padding-bottom: 30px;
+        } 
     }
 
     .close-story {
