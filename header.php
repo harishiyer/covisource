@@ -36,13 +36,13 @@
     gtag('config', 'G-HH3R8CHD7K');
     </script>
     <style>
-        body > *:not(.preloader){
+        .hidden{
             visibility: hidden;
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top hidden">
         <a class="pl-md-4 navbar-brand" href="/">COVI<strong>SOURCE</strong></a>
         <button class="navbar-toggler d-none" type="button" data-toggle="collapse" data-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">

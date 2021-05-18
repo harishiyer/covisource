@@ -1,11 +1,11 @@
-<footer>
+<footer class="hidden">
     <div class="row my-5">
         <div class="col-12 text-center">
             <p>All rights reserved. Covisource &copy; 2021.</p>
         </div>
     </div>
 </footer>
-<div class="story-display">
+<div class="story-display hidden">
     <div class="d-flex flex-column mx-auto single-story" style="height: 100%">
         <a class="close-story" href="javascript:void(0);"><i class="fa fa-times"></i></a>
         <div class="content text-center my-auto">
@@ -13,10 +13,10 @@
     </div>
 </div>
 
-<div class="contact-button">
+<div class="contact-button hidden">
     <p>Need Help?</p>
 </div>
-<div class="contact-form">
+<div class="contact-form hidden">
     <a class="close-contact-form" href="javascript:void(0);"><i class="fa fa-times"></i></a>
     <div class="row">
       <div class="col-12 col-md-8 offset-md-2 col-xl-6 offset-lg-3 d-flex">

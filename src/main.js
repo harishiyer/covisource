@@ -485,7 +485,7 @@ $(function () {
 
   $(window).on("load", function () {
     setTimeout(function (){
-      $('body > *:not(.preloader)').css("visibility", "visible");
+      $('body *').removeClass("hidden");
       $(".preloader").hide();
     },2500); 
     

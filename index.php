@@ -6,7 +6,7 @@
       $("#twitter-post").trigger('submit');
     } 
 </script>
-<div class="content-wrapper">
+<div class="content-wrapper hidden">
 
     <div class="row">
         <div class="col-12 col-lg-6 col-xl-8 order-md-last order-last d-none">
