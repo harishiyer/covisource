@@ -4,9 +4,9 @@
 
 import validate from "jquery-validation";
 import "slick-carousel";
+import { findPhoneNumbersInText } from "libphonenumber-js";
 
 $(function () {
-
   $(".stories").slick({
     slidesToShow: 4,
     adaptiveHeight: true,
@@ -22,7 +22,7 @@ $(function () {
         },
       },
     ],
-  }); 
+  });
 
   $(".location-dropdown .dropdown-menu  a:not(.search-location)").on(
     "click",
@@ -94,8 +94,10 @@ $(function () {
       var contact = $("#twitter-post #contact").val();
       var email = $("#twitter-post #email").val();
 
-      $('.submit-button-wrapper').hide();
-      $('.confirmation-message').html('<p><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></p>');
+      $(".submit-button-wrapper").hide();
+      $(".confirmation-message").html(
+        '<p><div class="spinner-border m-auto" role="status"><span class="sr-only">Loading...</span></div></p>'
+      );
 
       $.ajax({
         method: "POST",
@@ -109,12 +111,12 @@ $(function () {
         },
       })
         .done(function (data) {
-          $('.confirmation-message').html("<p>"+data+"</p>");
+          $(".confirmation-message").html("<p>" + data + "</p>");
         })
         .fail(function (jqXHR, textStatus) {
           alert("Message sending failed. Please reload. Error : " + textStatus);
-          $('.confirmation-message').hide();
-          $('.submit-button-wrapper').show();
+          $(".confirmation-message").hide();
+          $(".submit-button-wrapper").show();
         });
     }
   });
@@ -211,18 +213,47 @@ $(function () {
             tweet_data.featured_image +
             " class='img-fluid'></p>";
         }
+        //console.log("Print");
+        var phoneNumbers_data = findPhoneNumbersInText(
+          tweet_data.message,
+          "IN"
+        );
+        var phoneNumbers = "<div class='w-100 pt-2'></div>";
+        $(phoneNumbers_data).each(function (index, phoneNumber) {
+          phoneNumbers +=
+            "<a href='tel:" +
+            phoneNumber.number.number +
+            "'>" +
+            phoneNumber.number.number +
+            "</a><br>";
+        });
+
         tweet +=
           "<a href='" +
           tweet_data.url +
           "' class='d-none' target='_blank'>View on Twitter</a>";
         tweet += "</div>";
+        if (phoneNumbers_data.length != 0) {
+          tweet += "<div class='social-stack text-center'>";
+          tweet +=
+            '<a tabindex="0" class="btn btn-sm btn-secondary popover-dismiss" role="button" data-html="true" data-toggle="popover" data-trigger="disabled" title="Call" data-content="' +
+            phoneNumbers +
+            '<hr><p><strong>Please verify leads before making any transaction.<strong></p>"><i class="fa fa-phone"></i></a>';
+          tweet += "</div>";
+        }
         tweet += "</div>";
         tweet += "</div>";
         $(".tweets-wrapper").append(tweet);
+
+        $(".popover-dismiss").popover({
+          trigger: "focus",
+        });
       });
 
-      if(data.length == 0){
-        $(".tweets-wrapper").html("<h4 class='py-5 my-5 px-3'>No results found! Please try searching nearby cities or send us a message.</h4>");
+      if (data.length == 0) {
+        $(".tweets-wrapper").html(
+          "<h4 class='py-5 my-5 px-3'>No results found! Please try searching nearby cities or send us a message.</h4>"
+        );
       }
     })
     .fail(function (jqXHR, textStatus) {
@@ -276,7 +307,7 @@ $(function () {
             tweet_data.screen_name +
             "'>@" +
             tweet_data.screen_name +
-            "<a></span></p>";
+            "</a></span></p>";
           tweet += "</div>";
           tweet += "<div class='col-12'>";
           tweet += "<p>" + urlify(tweet_data.message) + "</p>";
@@ -286,18 +317,47 @@ $(function () {
               tweet_data.featured_image +
               " class='img-fluid'></p>";
           }
+          //console.log("Print");
+          var phoneNumbers_data = findPhoneNumbersInText(
+            tweet_data.message,
+            "IN"
+          );
+          var phoneNumbers = "<div class='w-100 pt-2'></div>";
+          $(phoneNumbers_data).each(function (index, phoneNumber) {
+            phoneNumbers +=
+              "<a href='tel:" +
+              phoneNumber.number.number +
+              "'>" +
+              phoneNumber.number.number +
+              "</a><br>";
+          });
+
           tweet +=
             "<a href='" +
             tweet_data.url +
             "' class='d-none' target='_blank'>View on Twitter</a>";
           tweet += "</div>";
+          if (phoneNumbers_data.length != 0) {
+            tweet += "<div class='social-stack text-center'>";
+            tweet +=
+              '<a tabindex="0" class="btn btn-sm btn-secondary popover-dismiss" role="button" data-html="true" data-toggle="popover" data-trigger="disabled" title="Call" data-content="' +
+              phoneNumbers +
+              '<hr><p><strong>Please verify leads before making any transaction.<strong></p>"><i class="fa fa-phone"></i></a>';
+            tweet += "</div>";
+          }
           tweet += "</div>";
           tweet += "</div>";
           $(".tweets-wrapper").append(tweet);
+
+          $(".popover-dismiss").popover({
+            trigger: "focus",
+          });
         });
 
-        if(data.length == 0){
-          $(".tweets-wrapper").html("<h4 class='py-5 my-5 px-3'>No results found! Please try searching nearby cities or send us a message.</h4>");
+        if (data.length == 0) {
+          $(".tweets-wrapper").html(
+            "<h4 class='py-5 my-5 px-3'>No results found! Please try searching nearby cities or send us a message.</h4>"
+          );
         }
 
         $(".is-removable").on("click", function (ev) {
@@ -343,7 +403,7 @@ $(function () {
                   tweet_data.screen_name +
                   "'>@" +
                   tweet_data.screen_name +
-                  "<a></span></p>";
+                  "</a></span></p>";
                 tweet += "</div>";
                 tweet += "<div class='col-12'>";
                 tweet += "<p>" + urlify(tweet_data.message) + "</p>";
@@ -353,18 +413,49 @@ $(function () {
                     tweet_data.featured_image +
                     " class='img-fluid'></p>";
                 }
+                //console.log("Print");
+                var phoneNumbers_data = findPhoneNumbersInText(
+                  tweet_data.message,
+                  "IN"
+                );
+                var phoneNumbers = "<div class='w-100 pt-2'></div>";
+                $(phoneNumbers_data).each(function (index, phoneNumber) {
+                  phoneNumbers +=
+                    "<a href='tel:" +
+                    phoneNumber.number.number +
+                    "'>" +
+                    phoneNumber.number.number +
+                    "</a><br>";
+                });
+
                 tweet +=
                   "<a href='" +
                   tweet_data.url +
                   "' class='d-none' target='_blank'>View on Twitter</a>";
                 tweet += "</div>";
+
+                if (phoneNumbers_data.length != 0) {
+                  tweet += "<div class='social-stack text-center'>";
+                  tweet +=
+                    '<a tabindex="0" class="btn btn-sm btn-secondary popover-dismiss" role="button" data-html="true" data-toggle="popover" data-trigger="disabled" title="Call" data-content="' +
+                    phoneNumbers +
+                    '<hr><p><strong>Please verify leads before making any transaction.<strong></p>"><i class="fa fa-phone"></i></a>';
+                  tweet += "</div>";
+                }
+
                 tweet += "</div>";
                 tweet += "</div>";
                 $(".tweets-wrapper").append(tweet);
+
+                $(".popover-dismiss").popover({
+                  trigger: "focus",
+                });
               });
 
-              if(data.length == 0){
-                $(".tweets-wrapper").html("<h4 class='py-5 my-5 px-3'>No results found! Please try searching nearby cities or send us a message.</h4>");
+              if (data.length == 0) {
+                $(".tweets-wrapper").html(
+                  "<h4 class='py-5 my-5 px-3'>No results found! Please try searching nearby cities or send us a message.</h4>"
+                );
               }
             })
             .fail(function (jqXHR, textStatus) {
@@ -379,19 +470,18 @@ $(function () {
       });
   });
 
-  $('.contact-button').on('click', function(){
-    $('.contact-form').fadeToggle();
-    $('.contact-button').fadeToggle(); 
-    $('.location-dropdown').fadeOut();
+  $(".contact-button").on("click", function () {
+    $(".contact-form").fadeToggle();
+    $(".contact-button").fadeToggle();
+    $(".location-dropdown").fadeOut();
   });
 
   $(".close-contact-form").on("click", function (ev) {
     ev.preventDefault();
-    $('.contact-form').fadeToggle();
-    $('.contact-button').fadeToggle();
-    $('.location-dropdown').fadeIn();
+    $(".contact-form").fadeToggle();
+    $(".contact-button").fadeToggle();
+    $(".location-dropdown").fadeIn();
   });
-
 });
 
 function updateQueryStringParameter(uri, key, value) {

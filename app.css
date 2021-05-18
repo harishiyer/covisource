@@ -12144,6 +12144,7 @@ nav.navbar .dropdown-menu input.user-location {
           columns: 4 350px;
   -webkit-column-gap: 1rem;
           column-gap: 1rem;
+  position: relative;
 }
 
 #twitter-feed .tweets-wrapper .tweet {
@@ -12153,17 +12154,26 @@ nav.navbar .dropdown-menu input.user-location {
   border-radius: 10px;
   min-height: 300px;
   width: 100%;
-  padding: 20px 30px;
+  padding: 20px 30px 60px;
   margin-bottom: 1rem;
   background-color: white;
   -webkit-box-shadow: -2px -1px 7px 4px #E5E5E5;
   box-shadow: 0px 0px 4px 1px #E5E5E5;
+  position: relative;
 }
 
 #twitter-feed .tweets-wrapper .tweet .twitter-profile-image {
   max-width: 48px;
   width: 100%;
   border-radius: 50%;
+}
+
+#twitter-feed .tweets-wrapper .tweet .social-stack {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  left: 0;
+  background-color: #fff;
 }
 
 @media screen and (max-width: 767px) {

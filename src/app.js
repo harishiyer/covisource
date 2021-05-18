@@ -19,6 +19,11 @@ require('./translation.js');
  */ 
 import 'select2';
 
+/*
+ * Import LibPhoneNumber-js
+ */
+import { findPhoneNumbersInText } from 'libphonenumber-js'
+
 /* 
  * Import our main js file
  */
