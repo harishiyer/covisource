@@ -485,9 +485,9 @@ $(function () {
 
   $(window).on("load", function () {
     setTimeout(function (){
-      $('body > *:not(.visibility)').css("visibility", "visible");
+      $('body > *:not(.preloader)').css("visibility", "visible");
       $(".preloader").hide();
-    },2500);
+    },2500); 
     
   });
 });
