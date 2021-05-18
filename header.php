@@ -79,7 +79,7 @@
                     <p class="type-location">Or Type Location</p>
                     <form id="select-location">
                         
-                    <input type="text" name="user_location" class="user-location" placeholder="Enter Location" required>
+                    <input type="text" autocomplete="off" name="user_location" class="user-location" placeholder="Enter Location" required>
                     <p class="type-location text-right text-center text-md-right"><a href="javascript:void(0)" class="search-location">Search <span class="fa fa-arrow-right"></span></a></p>
                     </form>
                 </div> 

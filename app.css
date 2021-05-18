@@ -12116,6 +12116,7 @@ nav.navbar .dropdown-menu input.user-location {
 #twitter-feed .data-filter-list {
   width: 100%;
   max-width: 150px;
+  border-radius: 0;
 }
 
 #twitter-feed h1 {
