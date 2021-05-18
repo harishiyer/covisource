@@ -485,6 +485,7 @@ $(function () {
 
   $(window).on("load", function () {
     setTimeout(function (){
+      $('body > *:not(.visibility)').css("visibility", "visible");
       $(".preloader").hide();
     },2500);
     

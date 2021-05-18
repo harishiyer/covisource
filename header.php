@@ -35,6 +35,11 @@
 
     gtag('config', 'G-HH3R8CHD7K');
     </script>
+    <style>
+        body > *:not(.preloader){
+            visibility: hidden;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">

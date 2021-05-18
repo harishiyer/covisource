@@ -13,11 +13,6 @@
     </div>
 </div>
 
-<div class="preloader">
-    <h3>COVI<strong>SOURCE</strong></h3>
-    <div class="lds-facebook"><div></div><div></div><div></div></div>
-</div>
-
 <div class="contact-button">
     <p>Need Help?</p>
 </div>
@@ -97,6 +92,11 @@
       </div>
     </div>
 </div>
+<div class="preloader">
+    <h3>COVI<strong>SOURCE</strong></h3>
+    <div class="lds-facebook"><div></div><div></div><div></div></div>
+</div>
+
 <script src="dist/bundle.js"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <?php 
