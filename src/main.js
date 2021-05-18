@@ -7,11 +7,6 @@ import "slick-carousel";
 import { findPhoneNumbersInText } from "libphonenumber-js";
 
 $(function () {
-
-  $(window).on('load', function(){
-    $('.preloader').hide();
-  });
-
   $(".stories").slick({
     slidesToShow: 4,
     adaptiveHeight: true,
@@ -177,6 +172,19 @@ $(function () {
       });
       $(".story-display .close-story").css({ color: "" });
     });
+  });
+
+  $(".contact-button").on("click", function () {
+    $(".contact-form").fadeToggle();
+    $(".contact-button").fadeToggle();
+    $(".location-dropdown").fadeOut();
+  });
+
+  $(".close-contact-form").on("click", function (ev) {
+    ev.preventDefault();
+    $(".contact-form").fadeToggle();
+    $(".contact-button").fadeToggle();
+    $(".location-dropdown").fadeIn();
   });
 
   $.ajax({
@@ -475,17 +483,11 @@ $(function () {
       });
   });
 
-  $(".contact-button").on("click", function () {
-    $(".contact-form").fadeToggle();
-    $(".contact-button").fadeToggle();
-    $(".location-dropdown").fadeOut();
-  });
-
-  $(".close-contact-form").on("click", function (ev) {
-    ev.preventDefault();
-    $(".contact-form").fadeToggle();
-    $(".contact-button").fadeToggle();
-    $(".location-dropdown").fadeIn();
+  $(window).on("load", function () {
+    setTimeout(function (){
+      $(".preloader").hide();
+    },2500);
+    
   });
 });
 
