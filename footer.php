@@ -13,6 +13,11 @@
     </div>
 </div>
 
+<div class="preloader">
+    <h3>COVI<strong>SOURCE</strong></h3>
+    <div class="lds-facebook"><div></div><div></div><div></div></div>
+</div>
+
 <div class="contact-button">
     <p>Need Help?</p>
 </div>

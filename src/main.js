@@ -7,6 +7,11 @@ import "slick-carousel";
 import { findPhoneNumbersInText } from "libphonenumber-js";
 
 $(function () {
+
+  $(window).on('load', function(){
+    $('.preloader').hide();
+  });
+
   $(".stories").slick({
     slidesToShow: 4,
     adaptiveHeight: true,
